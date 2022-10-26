@@ -1,5 +1,31 @@
 .main {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+  display: flex;
+  font-size: 20px;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.main__left {
+  width: 250px;
+  height: 100vh;
+  background-color: aliceblue;
+}
+
+.main__right {
+  width: calc(100vw - 250px);
+}
+
+@media screen and (max-width: 600px) {
+  .main {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .main__left {
+    height: 120px;
+    width: 100vw;
+  }
+
+  .main__right {
+    width: 100vw;
+  }
 }

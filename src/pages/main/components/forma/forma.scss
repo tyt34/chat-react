@@ -1,0 +1,107 @@
+.forma__area {
+  background-color: #BEDAD4;
+  height: 170px;
+}
+
+.forma__form {
+  padding: 15px;
+}
+
+.forma__textarea {
+  width: 100%;
+  font-size: 16px;
+  height: 59px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.forma__buttons {
+  display: flex;
+}
+
+.forma__button {
+  width: 140px;
+  background-color: #f3b633a8;
+  height: 40px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-right: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.forma__input-send {
+  display: flex;
+}
+
+.forma__input {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+.forma__input-prev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid hsla(0, 10%, 30%, 0.314);
+  background-color: #e1bae9;
+  width: 138px;
+  height: 38px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.forma__input-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3b633a8;
+  width: 140px;
+  height: 40px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-right: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.forma__prev-text {
+  font-size: 12px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .forma__area {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: calc(94px + 135px);
+  }
+
+  .forma__textarea {
+    font-size: 14px;
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .forma__buttons {
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .forma__button {
+    height: 20px
+  }
+
+  .forma__input-label {
+    height: 20px
+  }
+
+  .forma__input-prev {
+    height: 20px;
+    width: calc(100% - 180px);
+  }
+}

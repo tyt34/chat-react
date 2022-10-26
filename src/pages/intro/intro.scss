@@ -1,0 +1,45 @@
+.intro {
+  display: flex;
+  background-color: black;
+  height: 100vh;
+  font-size: 20px;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.intro__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 420px;
+  height: 185px;
+  background-color: antiquewhite;
+  border-radius: 30px;
+  margin: auto;
+  padding: 25px;
+}
+
+.intro__welcome {
+  margin-top: 10px;
+}
+
+.intro__link {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - 40px);
+  height: 35px;
+  background-color: aquamarine;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .intro {
+    padding: 20px;
+  }
+
+  .intro__container {
+    height: 260px
+  }
+}
