@@ -1,16 +1,16 @@
 import React, {FC} from 'react'
-import './main.scss'
+import './intro.scss'
 
-const Main: FC = () => {
+const Intro: FC = () => {
 
   return (
     <div
       className='main'
     >
-      main
+      intro
     </div>
   )
 }
 
-export default Main
+export default Intro
 
