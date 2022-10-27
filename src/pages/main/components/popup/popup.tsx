@@ -1,5 +1,6 @@
 import React, {FC} from 'react'
 import './popup.scss'
+import defAva from "../../assets/def-ava.png"
 
 const Popup: FC = () => {
 
@@ -11,7 +12,7 @@ const Popup: FC = () => {
         </button>
         <img 
           className="popup__img" 
-          src="./images/def-ava.png" 
+          src={defAva}
           alt="Увеличенное изображение для просмотра"
         />
       </div>

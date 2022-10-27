@@ -1,17 +1,28 @@
 import React, {FC} from 'react'
 import './main-user.scss'
+import defAva from "../../assets/def-ava.png"
 
-const MainUser: FC = () => {
+interface Props {
+  user: {
+    avatar: string
+    name: string
+  }
+}
+
+const MainUser: FC<Props> = ({user}: Props) => {
+  const {avatar, name} = user
+
+  console.log(' name: ', name)
 
   return (
     <div className="main-user__user">
       <p className="main-user__user-name">
-        Ваше имя
+        { name ? 'Вы: ' + name : 'Ваше имя'}
       </p>
       <img 
         className="main-user__user-ava main-user__ava-norm"
         id="user-ava" 
-        src="./images/def-ava.png" 
+        src={ avatar && avatar !== 'default' ? avatar : defAva} 
         alt="аватарка"
       />
     </div>
