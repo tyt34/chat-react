@@ -10,7 +10,12 @@ import {
   Popup
 } from './components'
 import io from 'socket.io-client'
-import { addUser, removeUser, setMainUser } from './main.slice'
+import { 
+  addUser, 
+  removeUser, 
+  setMainUser, 
+  addMessageOtherUser 
+} from './main.slice'
 import { IUser } from '../../shared/types/main'
 import { RootState } from './main.slice'
 
@@ -27,24 +32,12 @@ const socketOptions = {
 
 const Main: FC = () => {
   const dispatch = useDispatch()
-  /*
-  const [mainUser, setMainUser] = useState({
-    id: '',
-    avatar: '',
-    name: ''
-  })
-  */
+
   useEffect(() => {
     socket.emit(socketOptions.giveName)
 
     socket.on(socketOptions.giveName, (user) => {
-      const { avatar, id, name} = user
-      console.log(' user: ', user)
-      setMainUser({
-        id,
-        avatar,
-        name
-      })
+      console.log(' you user: ', user)
       dispatch(setMainUser(user))
     })
 
@@ -56,7 +49,6 @@ const Main: FC = () => {
     })
 
     socket.on(socketOptions.getNewUser, (user) => {
-      //const { avatar, id, name} = user
       console.log(' new user: ', user)
       dispatch(addUser(user))
     })
@@ -67,8 +59,8 @@ const Main: FC = () => {
     })
 
     socket.on(socketOptions.getNewMessage, (messageObj) => {
-      const { avatar, id, imageFile, message, name} = messageObj
-      console.log(' new mess: ', message)
+      console.log(' new mess: ', messageObj.message, messageObj.id)
+      dispatch(addMessageOtherUser(messageObj))
     })
   }, [])
 
@@ -84,7 +76,9 @@ const Main: FC = () => {
 
       <section className='main__right'>
         <ListMessages />
-        <Forma/>
+        <Forma
+          socket={socket}
+        />
       </section>
 
       <Popup />

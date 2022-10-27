@@ -12,7 +12,8 @@ const ListUsers: FC = () => {
   return (
     <div className="list-users__left-mid">
       <ul className="list-users__list">
-        { listUsers && 
+        { 
+          listUsers && 
           listUsers.map((user) => (
             <User
               key={user.id}

@@ -22,6 +22,11 @@ const initialState: Props = {
   listMessages: []
 }
 
+interface MessageAndImg {
+  text: string,
+  imgInBase64: any
+}
+
 export const mainSlice = createSlice({
   name: 'data',
   initialState,
@@ -30,7 +35,9 @@ export const mainSlice = createSlice({
       state.a = action.payload
     },
     setMainUser: (state, action: PayloadAction<IUser>) => {
-      state.mainUser = Object.assign(action.payload, {})
+      state.mainUser.id = action.payload.id
+      state.mainUser.name = action.payload.name
+      state.mainUser.avatar = action.payload.avatar
     },
     addUser: (state, action: PayloadAction<IUser>) => {
       if (checkInArray(action.payload.id, state.listUsers)) {
@@ -42,14 +49,26 @@ export const mainSlice = createSlice({
         return user.id !== action.payload
       })
     },
-    addMessageMainUser: (state, action: PayloadAction<string>) => {
+    addMessageMainUser: (state, action: PayloadAction<MessageAndImg>) => {
       state.listMessages = [...state.listMessages, {
         id: state.mainUser.id,
         avatar: state.mainUser.avatar,
         name: state.mainUser.name,
-        message: action.payload,
-        imageFile: ''
+        message: action.payload.text,
+        imageFile: action.payload.imgInBase64
       }]
+    },
+    addMessageOtherUser: (state, action: PayloadAction<IMessage>) => {
+      const { avatar, id, imageFile, message, name} = action.payload
+      if (id !== state.mainUser.id) {
+        state.listMessages = [...state.listMessages, {
+          id,
+          avatar,
+          name,
+          message,
+          imageFile
+        }]
+      }
     }
   }
 })
@@ -59,7 +78,8 @@ export const {
   setMainUser, 
   addUser, 
   removeUser, 
-  addMessageMainUser 
+  addMessageMainUser,
+  addMessageOtherUser
 } = mainSlice.actions
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

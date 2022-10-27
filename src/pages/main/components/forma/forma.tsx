@@ -1,21 +1,59 @@
-import React, {FC, useState} from 'react'
+import React, {FC, useState, useRef} from 'react'
 import './forma.scss'
 import { addMessageMainUser } from '../../main.slice'
 import { useDispatch, useSelector } from 'react-redux'
 
-const Forma: FC = () => {
-  const [text, setText] = useState('')
-  const dispatch = useDispatch()
+interface Props {
+  socket: any
+}
 
-  function handleChangeText(e: React.ChangeEvent<HTMLTextAreaElement>): void {
+const textForFile = 'Файл не выбран'
+
+const Forma: FC<Props> = ({socket}: Props) => {
+  const [text, setText] = useState('')
+  const [nameFile, setNameFile] = useState(textForFile)
+  const dispatch = useDispatch()
+  const inputFile = useRef<any>(null)
+
+  const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>): void  => {
     setText(e.target.value)
   }
 
-  function handleButtonSend(e: React.FormEvent<HTMLButtonElement>) {
+  const handleButtonSend = (e: React.FormEvent<HTMLButtonElement>): void => {
     e.preventDefault()
-    console.log(' click button ')
-    dispatch(addMessageMainUser(text))
-    setText('')
+    if (text) {
+      let imgInBase64: any = ''
+
+      if (inputFile.current?.files?.[0]) { // для отправки картинки и текста
+        let reader = new FileReader()
+        reader.addEventListener('load', () => {
+          imgInBase64 = reader.result
+          dispatch(addMessageMainUser({text, imgInBase64}))
+          socket.emit('chat message', {
+            message: text,
+            imageFile: imgInBase64
+          })
+          setText('')
+        })
+        reader.readAsDataURL(inputFile.current?.files?.[0])
+        inputFile.current.value = null
+        setNameFile(textForFile)
+      } else { // для отправки текста
+        dispatch(addMessageMainUser({text, imgInBase64: ''}))
+        socket.emit('chat message', {
+          message: text,
+          imageFile: ''
+        })
+        setText('')
+      }      
+    }
+  }
+
+  const handleChange = (): void => {
+    if (inputFile.current?.files?.[0]) {
+      setNameFile(inputFile.current?.files?.[0].name!)
+      setText((prevText) => {return prevText + ' '})
+    }
   }
 
   return (
@@ -46,7 +84,9 @@ const Forma: FC = () => {
                 Прикрепить картинку
               </p>
             </label>
-            <input 
+            <input
+              onChange={handleChange}
+              ref={inputFile}
               id="send-image"
               className="forma__input" 
               type="file"
@@ -54,7 +94,7 @@ const Forma: FC = () => {
             />
             <div className="forma__input-prev">
               <p className="forma__prev-text">
-                Файл не выбран
+                {nameFile}
               </p>
             </div>
           </div>

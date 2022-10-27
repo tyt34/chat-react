@@ -1,0 +1,66 @@
+.message {
+  width: 60%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.message-top {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.message-user {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.message__user-ava {
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.message-bottom {
+  background-color: #EFFDDE;
+  padding: 10px;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.message-text {
+  word-wrap: break-word;
+  font-size: 16px;
+}
+
+.message__img {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #EFFDDE;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.message__img-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.message__img-mini {
+  width: 100px;
+  cursor: pointer;
+}
+
+.message_main {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .message__user-ava {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+  }
+}
