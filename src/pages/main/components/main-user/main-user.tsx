@@ -1,18 +1,18 @@
 import React, {FC} from 'react'
 import './main-user.scss'
+import { useSelector } from 'react-redux'
 import defAva from "../../assets/def-ava.png"
+import { RootState } from '../../main.slice'
 
-interface Props {
-  user: {
-    avatar: string
-    name: string
-  }
-}
+const MainUser: FC = () => {
+  const {id, avatar, name} = useSelector((store: RootState) => store.mainUser)
 
-const MainUser: FC<Props> = ({user}: Props) => {
-  const {avatar, name} = user
+  //console.log(' main user: ', id, name, avatar)
 
-  console.log(' name: ', name)
+  //const name = ''
+  //const avatar = ''
+
+  //console.log(' name: ', name)
 
   return (
     <div className="main-user__user">

@@ -1,5 +1,6 @@
 import React, {FC, useEffect, useState} from 'react'
 import './main.scss'
+import { useDispatch, useSelector } from 'react-redux'
 import { 
   CountUsers,
   Forma,
@@ -8,7 +9,10 @@ import {
   MainUser,
   Popup
 } from './components'
-import io from 'socket.io-client';
+import io from 'socket.io-client'
+import { addUser, removeUser, setMainUser } from './main.slice'
+import { IUser } from '../../shared/types/main'
+import { RootState } from './main.slice'
 
 const socket = io('http://localhost:3001/')
 
@@ -21,19 +25,15 @@ const socketOptions = {
   getNewMessage: 'message for all'
 }
 
-interface IUser {
-  id: string
-  avatar: string
-  name: string
-}
-
 const Main: FC = () => {
+  const dispatch = useDispatch()
+  /*
   const [mainUser, setMainUser] = useState({
     id: '',
     avatar: '',
     name: ''
   })
-
+  */
   useEffect(() => {
     socket.emit(socketOptions.giveName)
 
@@ -45,19 +45,25 @@ const Main: FC = () => {
         avatar,
         name
       })
+      dispatch(setMainUser(user))
     })
 
     socket.on(socketOptions.giveAllUsers, (users) => {
       console.log(' users: ', users)
+      users.forEach((u: IUser) => {
+        dispatch(addUser(u))
+      })
     })
 
     socket.on(socketOptions.getNewUser, (user) => {
-      const { avatar, id, name} = user
+      //const { avatar, id, name} = user
       console.log(' new user: ', user)
+      dispatch(addUser(user))
     })
 
     socket.on(socketOptions.getOldUser, (idUser) => {
       console.log(' off user (id):', idUser)
+      dispatch(removeUser(idUser))
     })
 
     socket.on(socketOptions.getNewMessage, (messageObj) => {
@@ -73,9 +79,7 @@ const Main: FC = () => {
       <section className="main__left">
         <CountUsers />
         <ListUsers />
-        <MainUser 
-          user={mainUser}
-        />
+        <MainUser />
       </section>
 
       <section className='main__right'>
