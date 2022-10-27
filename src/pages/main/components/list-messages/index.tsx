@@ -1,4 +1,4 @@
-import ListMessages from "./list-messages"
+import ListMessages from './list-messages'
 
 export {
   ListMessages

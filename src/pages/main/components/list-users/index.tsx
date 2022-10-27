@@ -1,4 +1,4 @@
-import ListUsers from "./list-users"
+import ListUsers from './list-users'
 
 export {
   ListUsers

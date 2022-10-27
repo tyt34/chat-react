@@ -1,27 +1,25 @@
-import React, {FC, useEffect, useState} from 'react'
+import React, { FC, useEffect } from 'react'
 import './main.scss'
-import { useDispatch, useSelector } from 'react-redux'
-import { 
+import { useDispatch } from 'react-redux'
+import {
   CountUsers,
   Forma,
   ListMessages,
   ListUsers,
-  MainUser,
-  Popup
+  MainUser
 } from './components'
 import io from 'socket.io-client'
-import { 
-  addUser, 
-  removeUser, 
-  setMainUser, 
-  addMessageOtherUser 
+import {
+  addUser,
+  removeUser,
+  setMainUser,
+  addMessageOtherUser
 } from './main.slice'
 import { IUser } from '../../shared/types/main'
-import { RootState } from './main.slice'
 
 const socket = io('http://localhost:3001/')
 
-const socketOptions = {
+export const socketOptions = {
   sendChatMessage: 'chat message',
   giveName: 'give a name',
   giveAllUsers: 'now list users',
@@ -80,11 +78,8 @@ const Main: FC = () => {
           socket={socket}
         />
       </section>
-
-      <Popup />
     </section>
   )
 }
 
 export default Main
-

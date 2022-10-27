@@ -1,6 +1,6 @@
-import React from "react"
-import Intro from "../pages/intro/intro"
-import Main from "../pages/main/main"
+import React from 'react'
+import Intro from '../pages/intro/intro'
+import Main from '../pages/main/main'
 
 export interface IRoute {
   path: string

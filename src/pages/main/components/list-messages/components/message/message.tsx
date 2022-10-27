@@ -1,15 +1,23 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import './message.scss'
 import { IMessage } from '../../../../../../shared/types/main'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { RootState } from '../../../../main.slice'
 
-const Message: FC<IMessage> = ({id, name, avatar, imageFile, message}: IMessage) => {
+export interface Props extends IMessage {
+  setImagePopup: (image: string) => void
+}
+
+const Message: FC<Props> = ({ id, name, avatar, imageFile, message, setImagePopup }: Props) => {
   const mainUser = useSelector((store: RootState) => store.mainUser)
+
+  const handleClick = (): void => {
+    setImagePopup(imageFile)
+  }
 
   return (
     <>
-      <li 
+      <li
         className={
           mainUser.id === id ? 'message message_main' : 'message'
         }
@@ -19,10 +27,10 @@ const Message: FC<IMessage> = ({id, name, avatar, imageFile, message}: IMessage)
           <p className="message-user">
             {name}
           </p>
-          <img 
+          <img
             className="message__user-ava"
             src={avatar}
-            alt="аватарка" 
+            alt="аватарка"
           />
 
         </div>
@@ -35,24 +43,22 @@ const Message: FC<IMessage> = ({id, name, avatar, imageFile, message}: IMessage)
         </div>
 
         {
-        imageFile && 
+        imageFile &&
         <div className="message__img">
           <p className="message__img-title">
             Прикрепленное изображение:
           </p>
-          <img 
-            className="message__img-mini" 
+          <img
+            onClick={handleClick}
+            className="message__img-mini"
             src={imageFile}
             alt="изображение, которое прикрепил пользователь"
           />
         </div>
         }
       </li>
-
-      
     </>
   )
 }
 
 export default Message
-

@@ -1,4 +1,4 @@
-import CountUsers from "./count-users"
+import CountUsers from './count-users'
 
 export {
   CountUsers

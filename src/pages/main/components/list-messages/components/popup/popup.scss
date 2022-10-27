@@ -6,6 +6,8 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+  top: 0;
+  left: 0;
 }
 
 .popup_open {
@@ -13,7 +15,8 @@
 }
 
 .popup__img {
-  width: 100%;
+  /*width: 100%;*/
+  height: 100%;
 }
 
 .popup__container {

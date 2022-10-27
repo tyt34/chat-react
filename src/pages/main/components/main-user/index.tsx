@@ -1,4 +1,4 @@
-import MainUser from "./main-user"
+import MainUser from './main-user'
 
 export {
   MainUser

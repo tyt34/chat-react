@@ -5,9 +5,9 @@ import { IUser, IMessage } from '../../shared/types/main'
 import { checkInArray } from '../../shared/utils/main'
 
 interface Props {
-  a: string,
-  mainUser: IUser,
-  listUsers: IUser[],
+  a: string
+  mainUser: IUser
+  listUsers: IUser[]
   listMessages: IMessage[]
 }
 
@@ -23,7 +23,7 @@ const initialState: Props = {
 }
 
 interface MessageAndImg {
-  text: string,
+  text: string
   imgInBase64: any
 }
 
@@ -59,7 +59,7 @@ export const mainSlice = createSlice({
       }]
     },
     addMessageOtherUser: (state, action: PayloadAction<IMessage>) => {
-      const { avatar, id, imageFile, message, name} = action.payload
+      const { avatar, id, imageFile, message, name } = action.payload
       if (id !== state.mainUser.id) {
         state.listMessages = [...state.listMessages, {
           id,
@@ -73,11 +73,11 @@ export const mainSlice = createSlice({
   }
 })
 
-export const { 
-  replaceA, 
-  setMainUser, 
-  addUser, 
-  removeUser, 
+export const {
+  replaceA,
+  setMainUser,
+  addUser,
+  removeUser,
   addMessageMainUser,
   addMessageOtherUser
 } = mainSlice.actions

@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import './count-users.scss'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../../app/store'
@@ -16,4 +16,3 @@ const CountUsers: FC = () => {
 }
 
 export default CountUsers
-

@@ -1,4 +1,4 @@
-import React, {FC, useState, useEffect} from 'react'
+import React, { FC } from 'react'
 import './list-users.scss'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../../app/store'
@@ -12,8 +12,8 @@ const ListUsers: FC = () => {
   return (
     <div className="list-users__left-mid">
       <ul className="list-users__list">
-        { 
-          listUsers && 
+        {
+          listUsers &&
           listUsers.map((user) => (
             <User
               key={user.id}
@@ -22,10 +22,9 @@ const ListUsers: FC = () => {
             />
           ))
         }
-      </ul>       
+      </ul>
     </div>
   )
 }
 
 export default ListUsers
-

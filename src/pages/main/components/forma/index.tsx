@@ -1,4 +1,4 @@
-import Forma from "./forma"
+import Forma from './forma'
 
 export {
   Forma
