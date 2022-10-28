@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import './message.scss'
 import { IMessage } from '../../../../../../shared/types/main'
 import { useSelector } from 'react-redux'
@@ -9,7 +9,18 @@ export interface Props extends IMessage {
 }
 
 const Message: FC<Props> = ({ id, name, avatar, imageFile, message, setImagePopup }: Props) => {
+  const [imageBlob, setImageBlob] = useState<any>('')
   const mainUser = useSelector((store: RootState) => store.mainUser)
+
+  useEffect(() => {
+    if (imageFile !== '') {
+      fetch(imageFile)
+      .then(res => res.blob())
+      .then(blob => {
+        setImageBlob(window.URL.createObjectURL(blob))
+      })
+    }
+  },[])
 
   const handleClick = (): void => {
     setImagePopup(imageFile)
@@ -51,7 +62,7 @@ const Message: FC<Props> = ({ id, name, avatar, imageFile, message, setImagePopu
           <img
             onClick={handleClick}
             className="message__img-mini"
-            src={imageFile}
+            src={imageBlob}
             alt="изображение, которое прикрепил пользователь"
           />
         </div>
