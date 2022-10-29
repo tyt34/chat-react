@@ -23,7 +23,7 @@ const Message: FC<Props> = ({ id, name, avatar, imageFile, message, setImagePopu
   },[])
 
   const handleClick = (): void => {
-    setImagePopup(imageFile)
+    setImagePopup(imageBlob)
   }
 
   return (
