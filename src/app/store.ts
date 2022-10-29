@@ -1,12 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 import { mainSlice } from '../pages/main/main.slice'
-import { Logger } from '../middleware/logger';
+import { Logger } from '../middleware/logger'
+import { SocketMid } from '../middleware/socket-mid'
 
 export const store = configureStore({
   reducer: mainSlice.reducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
-      .concat(Logger),
+  //middleware: [Logger, SocketMid]
+  middleware: [SocketMid]
 })
 
 export type RootState = ReturnType<typeof store.getState>

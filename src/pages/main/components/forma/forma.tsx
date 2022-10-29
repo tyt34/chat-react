@@ -2,7 +2,7 @@ import React, { FC, useState, useRef } from 'react'
 import './forma.scss'
 import { addMessageMainUser } from '../../main.slice'
 import { useDispatch } from 'react-redux'
-import { socketOptions } from '../../main'
+import { socketOptions } from '../../../../shared/constants/main'
 
 interface Props {
   socket: any
