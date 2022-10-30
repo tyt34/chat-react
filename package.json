@@ -2,6 +2,7 @@
   "name": "reactjs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tyt34.github.io/chat-react-js",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
@@ -29,7 +30,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts start",
-    "build": "react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts build",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "eslint 'src/**/*.tsx' --fix"
@@ -51,6 +52,7 @@
     "@typescript-eslint/parser": "^5.41.0",
     "eslint": "^8.26.0",
     "eslint-plugin-react": "^7.31.10",
+    "gh-pages": "^4.0.0",
     "jest": "^27.5.1"
   }
 }

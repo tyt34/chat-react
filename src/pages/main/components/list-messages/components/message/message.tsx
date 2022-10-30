@@ -76,6 +76,6 @@ const messagePropsAreEqual = (prevMes:any, nextMes:any) => {
   return true
 }
 */
-//export default memo(Message)
-//export default Message
-export default memo(Message, () => {return true})
+// export default memo(Message)
+// export default Message
+export default memo(Message, () => { return true })
