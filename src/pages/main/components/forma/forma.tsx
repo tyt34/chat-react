@@ -1,7 +1,7 @@
 import React, { FC, useState, useRef } from 'react'
 import './forma.scss'
 import { addMessageMainUser } from '../../main.slice'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../../../shared/hook'
 import { socketOptions } from '../../../../shared/constants/main'
 
 interface Props {
@@ -13,7 +13,7 @@ const textForFile = 'Файл не выбран'
 const Forma: FC<Props> = ({ socket }: Props) => {
   const [text, setText] = useState('')
   const [nameFile, setNameFile] = useState(textForFile)
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const inputFile = useRef<any>(null)
 
   const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {

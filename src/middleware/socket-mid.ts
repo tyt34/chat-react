@@ -9,15 +9,19 @@ import {
 
 export function SocketMid(store: MiddlewareAPI<void>) {
   const socket = io(urlApi)
+  
   socket.on(socketOptions.getNewMessage, (messageObj) => {
+    console.log(' new mess:add --> ', messageObj )
     store.dispatch(addMessageOtherUser(messageObj))
   })
 
   socket.on(socketOptions.getNewUser, (user) => {
+    console.log(' add --> ', user )
     store.dispatch(addUser(user))
   })
 
   socket.on(socketOptions.getOldUser, (idUser) => {
+    console.log(' rem --> ', idUser )
     store.dispatch(removeUser(idUser))
   })
 

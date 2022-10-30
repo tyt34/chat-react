@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react'
 import './main.scss'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../shared/hook'
 import {
   CountUsers,
   Forma,
@@ -11,7 +11,7 @@ import {
 import io from 'socket.io-client'
 import {
   addUser,
-  setMainUser,
+  setMainUser
 } from './main.slice'
 import { IUser } from '../../shared/types/main'
 import { socketOptions, urlApi } from '../../shared/constants/main'
@@ -19,15 +19,15 @@ import { socketOptions, urlApi } from '../../shared/constants/main'
 const socket = io(urlApi)
 
 const Main: FC = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     socket.emit(socketOptions.giveName)
-    
+
     socket.on(socketOptions.giveName, (user) => {
       dispatch(setMainUser(user))
     })
-    
+
     socket.on(socketOptions.giveAllUsers, (users) => {
       users.forEach((u: IUser) => {
         dispatch(addUser(u))

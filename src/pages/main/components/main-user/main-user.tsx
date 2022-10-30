@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import './main-user.scss'
-import { useSelector } from 'react-redux'
 import defAva from '../../assets/def-ava.png'
-import { RootState } from '../../main.slice'
+import { hookMainUser } from '../../../../shared/hook'
 
 const MainUser: FC = () => {
-  const { avatar, name } = useSelector((store: RootState) => store.mainUser)
+  const { avatar, name } = hookMainUser()
+  console.log(' => > ', name)
 
   return (
     <div className="main-user__user">

@@ -1,8 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import './message.scss'
 import { IMessage } from '../../../../../../shared/types/main'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../../../main.slice'
+import { hookMainUser } from '../../../../../../shared/hook'
 
 export interface Props extends IMessage {
   setImagePopup: (image: string) => void
@@ -10,17 +9,17 @@ export interface Props extends IMessage {
 
 const Message: FC<Props> = ({ id, name, avatar, imageFile, message, setImagePopup }: Props) => {
   const [imageBlob, setImageBlob] = useState<any>('')
-  const mainUser = useSelector((store: RootState) => store.mainUser)
+  const mainUser = hookMainUser()
 
   useEffect(() => {
     if (imageFile !== '') {
       fetch(imageFile)
-      .then(res => res.blob())
-      .then(blob => {
-        setImageBlob(window.URL.createObjectURL(blob))
-      })
+        .then(async res => await res.blob())
+        .then(blob => {
+          setImageBlob(window.URL.createObjectURL(blob))
+        })
     }
-  },[])
+  }, [])
 
   const handleClick = (): void => {
     setImagePopup(imageBlob)

@@ -1,13 +1,10 @@
 import React, { FC, useState } from 'react'
 import './list-messages.scss'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../main.slice'
 import { Message, Popup } from './components'
-
-const listMessages = () => useSelector((store: RootState) => store.listMessages)
+import { hookListMessages } from '../../../../shared/hook'
 
 const ListMessages: FC = () => {
-  const list = listMessages()
+  const list = hookListMessages()
   const [imgPopup, setImgPopup] = useState('')
 
   const setImagePopup = (image: string): void => {
