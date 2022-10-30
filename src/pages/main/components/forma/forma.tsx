@@ -25,6 +25,15 @@ const Forma: FC<Props> = ({ socket }: Props) => {
     if (text !== '') {
       let imgInBase64: any = ''
 
+      /**
+       * смещение скролла, только если сам пользователь написал сообщение
+       */
+      const scrollToDown = (): void => {
+        const scrollBlock = document.getElementsByClassName('list-messages')[0]
+        scrollBlock.scrollTo(0, scrollBlock.scrollHeight)
+      }
+      setTimeout(scrollToDown, 250)
+
       if (inputFile.current?.files?.[0] !== undefined) { // для отправки картинки и текста
         const reader = new FileReader()
         reader.addEventListener('load', () => {

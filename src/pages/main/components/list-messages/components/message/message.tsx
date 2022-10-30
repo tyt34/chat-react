@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState, memo } from 'react'
 import './message.scss'
 import { IMessage } from '../../../../../../shared/types/main'
 import { hookMainUser } from '../../../../../../shared/hook'
@@ -71,4 +71,11 @@ const Message: FC<Props> = ({ id, name, avatar, imageFile, message, setImagePopu
   )
 }
 
-export default Message
+/*
+const messagePropsAreEqual = (prevMes:any, nextMes:any) => {
+  return true
+}
+*/
+//export default memo(Message)
+//export default Message
+export default memo(Message, () => {return true})

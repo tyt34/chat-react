@@ -6,8 +6,6 @@ import { hookListUsers } from '../../../../shared/hook'
 const ListUsers: FC = () => {
   const list = hookListUsers()
 
-  console.log(' users: ', list)
-
   return (
     <div className="list-users__left-mid">
       <ul className="list-users__list">

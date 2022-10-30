@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import './popup.scss'
 
 interface Props {
@@ -34,4 +34,4 @@ const Popup: FC<Props> = ({ imgPopup, setImagePopup }: Props) => {
   )
 }
 
-export default Popup
+export default memo(Popup)

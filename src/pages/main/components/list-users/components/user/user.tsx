@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import './user.scss'
 import defAva from '../../../../assets/def-ava.png'
 
@@ -22,4 +22,4 @@ const User: FC<Props> = ({ name, avatar }: Props) => {
   )
 }
 
-export default User
+export default memo(User)

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useCallback } from 'react'
 import './list-messages.scss'
 import { Message, Popup } from './components'
 import { hookListMessages } from '../../../../shared/hook'
@@ -7,9 +7,9 @@ const ListMessages: FC = () => {
   const list = hookListMessages()
   const [imgPopup, setImgPopup] = useState('')
 
-  const setImagePopup = (image: string): void => {
+  const memoSetImagePopup = useCallback((image: string) => {
     setImgPopup(image)
-  }
+  }, [imgPopup])
 
   return (
     <>
@@ -24,7 +24,7 @@ const ListMessages: FC = () => {
               avatar={message.avatar}
               imageFile={message.imageFile}
               message={message.message}
-              setImagePopup={setImagePopup}
+              setImagePopup={memoSetImagePopup}
             />
           ))
         }
@@ -32,7 +32,7 @@ const ListMessages: FC = () => {
 
       <Popup
         imgPopup={imgPopup}
-        setImagePopup={setImagePopup}
+        setImagePopup={memoSetImagePopup}
       />
     </>
   )
