@@ -1,3 +1,5 @@
+@import '../../shared/mixins.scss';
+
 .intro {
   display: flex;
   background-color: black;
@@ -10,8 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 420px;
-  height: 185px;
+  @include size(420px, 185px);
   background-color: antiquewhite;
   border-radius: 30px;
   margin: auto;
@@ -27,8 +28,7 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  width: calc(100% - 40px);
-  height: 35px;
+  @include size(calc(100% - 40px), 35px);
   background-color: aquamarine;
   border-radius: 7px;
   cursor: pointer;

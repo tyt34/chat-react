@@ -29,7 +29,7 @@ const InputFile: FC<Props> = ({ inputFile, setNameFile, nameFile, setImgInBase64
       reader.readAsDataURL(inputFile.current?.files?.[0])
     }
   }, [inputFile.current?.files?.[0]])
- 
+
   return (
     <section className="forma__input-send">
       <label

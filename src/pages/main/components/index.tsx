@@ -3,7 +3,6 @@ import { Forma } from './forma'
 import { ListMessages } from './list-messages'
 import { ListUsers } from './list-users'
 import { MainUser } from './main-user'
-// import { Popup } from "./list-messages/components/popup/index"
 
 export {
   CountUsers,
@@ -11,5 +10,4 @@ export {
   ListMessages,
   ListUsers,
   MainUser
-  // Popup
 }

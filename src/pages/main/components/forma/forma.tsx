@@ -2,10 +2,9 @@ import React, { FC, useState, useRef } from 'react'
 import './forma.scss'
 import { addMessageMainUser } from '../../../../app/app.slice'
 import { useAppDispatch } from '../../../../shared/hook'
-import { socketOptions } from '../../../../shared/constants/main'
+import { socketOptions, textForFile } from '../../../../shared/constants/main'
 import { Socket } from 'socket.io-client'
 import { InputFile } from './components'
-import { textForFile } from '../../../../shared/constants/main'
 
 interface Props {
   socket: Socket
@@ -25,22 +24,13 @@ const Forma: FC<Props> = ({ socket }: Props) => {
   const setImgBase64 = (base64: any): void => {
     setImgInBase64(base64)
   }
-    
+
   const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setText(e.target.value)
   }
-  
-  const handleButtonSend = (e: React.FormEvent<HTMLButtonElement>): void => {
-    if (text !== '' || imgInBase64 !== '' ) {
 
-      
-      /*
-      const scrollToDown = (): void => {
-        const scrollBlock = document.getElementsByClassName('list-messages')[0]
-        scrollBlock.scrollTo(0, scrollBlock.scrollHeight)
-      }
-      setTimeout(scrollToDown, 250)
-      */
+  const handleButtonSend = (e: React.FormEvent<HTMLButtonElement>): void => {
+    if (text !== '' || imgInBase64 !== '') {
       dispatch(addMessageMainUser({ text, imgInBase64 }))
       socket.emit(socketOptions.sendChatMessage, {
         message: text,
@@ -72,7 +62,7 @@ const Forma: FC<Props> = ({ socket }: Props) => {
           >
             Отправить сообщение
           </button>
-          <InputFile 
+          <InputFile
             inputFile={inputFile}
             setNameFile={setNameForFile}
             nameFile={nameFile}

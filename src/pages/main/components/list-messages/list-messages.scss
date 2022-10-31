@@ -1,12 +1,14 @@
+@import '../../../../shared/mixins.scss';
+
 .list-messages {
   background-color: white;
-  height: calc(100vh - 170px);
+  height: calc(100vh - #{$heightFormaBig});
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 @media screen and (max-width: 600px) {
   .list-messages {
-    height: calc(100vh - 400px);
+    height: calc(100vh - #{$heightMainUserSmall} - #{$heightFormaSmall} - #{$heightPanelPhone} - #{$heightTopSmall});
   }
 }

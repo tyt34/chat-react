@@ -1,3 +1,5 @@
+@import '../../shared/mixins.scss';
+
 .main {
   display: flex;
   font-size: 20px;
@@ -5,13 +7,12 @@
 }
 
 .main__left {
-  width: 250px;
-  height: 100vh;
+  @include size(#{$widthLeftBlockBig}, 100vh);
   background-color: aliceblue;
 }
 
 .main__right {
-  width: calc(100vw - 250px);
+  width: calc(100vw - #{$widthLeftBlockBig});
 }
 
 @media screen and (max-width: 600px) {
@@ -21,8 +22,7 @@
   }
 
   .main__left {
-    height: 120px;
-    width: 100vw;
+    @include size(100vw, #{$heightTopSmall});
   }
 
   .main__right {

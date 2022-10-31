@@ -1,4 +1,22 @@
 @mixin size($width, $height) {
   width: $width;
   height: $height;
-}
+};
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+};
+
+$heightMainUserSmall: 94px;
+$heightFormaSmall: 137px;
+$widthButtonSmall: 140px;
+$heightTopSmall: 120px;
+
+$widthLeftBlockBig: 250px;
+$heightFormaBig: 170px;
+$heightMainUserBig: 170px;
+$heightTopBig: 48px;
+
+$heightPanelPhone: 49px;
