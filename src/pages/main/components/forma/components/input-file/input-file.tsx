@@ -3,9 +3,9 @@ import { textForFile } from '../../../../../../shared/constants/main'
 
 interface Props {
   inputFile: any
-  setNameFile: any
+  setNameFile: (name: string) => void
   nameFile: string
-  setImgInBase64: any
+  setImgInBase64: (base64: any) => void
 }
 
 const InputFile: FC<Props> = ({ inputFile, setNameFile, nameFile, setImgInBase64 }: Props) => {
@@ -21,7 +21,7 @@ const InputFile: FC<Props> = ({ inputFile, setNameFile, nameFile, setImgInBase64
   }
 
   useEffect(() => {
-    if (inputFile.current?.files?.[0] !== undefined) { // для отправки картинки и текста
+    if (inputFile.current?.files?.[0] !== undefined) {
       const reader = new FileReader()
       reader.addEventListener('load', () => {
         setImgInBase64(reader.result)

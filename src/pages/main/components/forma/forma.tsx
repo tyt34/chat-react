@@ -17,6 +17,14 @@ const Forma: FC<Props> = ({ socket }: Props) => {
   const [text, setText] = useState('')
   const [nameFile, setNameFile] = useState(textForFile)
   const [imgInBase64, setImgInBase64] = useState('')
+
+  const setNameForFile = (name: string): void => {
+    setNameFile(name)
+  }
+
+  const setImgBase64 = (base64: any): void => {
+    setImgInBase64(base64)
+  }
     
   const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setText(e.target.value)
@@ -67,9 +75,9 @@ const Forma: FC<Props> = ({ socket }: Props) => {
           </button>
           <InputFile 
             inputFile={inputFile}
-            setNameFile={setNameFile}
+            setNameFile={setNameForFile}
             nameFile={nameFile}
-            setImgInBase64={setImgInBase64}
+            setImgInBase64={setImgBase64}
           />
         </div>
       </form>
