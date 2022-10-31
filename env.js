@@ -83,5 +83,5 @@ window.env = {
   "VSCODE_PID": "2840",
   "INIT_CWD": "/home/r/pr/React/chat/reactjs",
   "EDITOR": "vi",
-  "REACT_APP_URLAPI": "test"
+  "REACT_APP_URLAPI": "prod"
 };
