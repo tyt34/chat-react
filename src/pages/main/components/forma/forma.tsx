@@ -21,7 +21,6 @@ const Forma: FC<Props> = ({ socket }: Props) => {
   }
 
   const handleButtonSend = (e: React.FormEvent<HTMLButtonElement>): void => {
-    e.preventDefault()
     if (text !== '') {
       let imgInBase64: any = ''
 
@@ -81,6 +80,7 @@ const Forma: FC<Props> = ({ socket }: Props) => {
             className="forma__button"
             onClick={handleButtonSend}
             id="send-message"
+            type='button'
           >
             Отправить сообщение
           </button>

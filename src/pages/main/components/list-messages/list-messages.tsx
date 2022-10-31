@@ -1,10 +1,10 @@
 import React, { FC, useState, useCallback } from 'react'
 import './list-messages.scss'
 import { Message, Popup } from './components'
-import { hookListMessages } from '../../../../shared/hook'
+import { useMessages } from '../../../../shared/hook'
 
 const ListMessages: FC = () => {
-  const list = hookListMessages()
+  const list = useMessages()
   const [imgPopup, setImgPopup] = useState('')
 
   const memoSetImagePopup = useCallback((image: string) => {
@@ -18,7 +18,7 @@ const ListMessages: FC = () => {
           list &&
           list.map((message, i) => (
             <Message
-              key={message.id + i.toString()}
+              key={i}
               id={message.id}
               name={message.name}
               avatar={message.avatar}

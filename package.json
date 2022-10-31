@@ -28,8 +28,8 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "deploy": "echo 'REACT_APP_URLAPI=prod' > .env; gh-pages -d build",
+    "start": "echo 'REACT_APP_URLAPI=test' > .env; react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts start",
     "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts test",
     "eject": "react-scripts eject",

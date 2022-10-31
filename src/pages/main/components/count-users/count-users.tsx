@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import './count-users.scss'
-import { hookListUsers } from '../../../../shared/hook'
+import { useUsers } from '../../../../shared/hook'
 
 const CountUsers: FC = () => {
-  const list = hookListUsers()
+  const list = useUsers()
 
   return (
     <div className="count-users__left-top">

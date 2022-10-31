@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState, memo } from 'react'
 import './message.scss'
 import { IMessage } from '../../../../../../shared/types/main'
-import { hookMainUser } from '../../../../../../shared/hook'
+import { useMainUser } from '../../../../../../shared/hook'
 
 export interface Props extends IMessage {
   setImagePopup: (image: string) => void
@@ -9,7 +9,7 @@ export interface Props extends IMessage {
 
 const Message: FC<Props> = ({ id, name, avatar, imageFile, message, setImagePopup }: Props) => {
   const [imageBlob, setImageBlob] = useState<any>('')
-  const mainUser = hookMainUser()
+  const mainUser = useMainUser()
 
   useEffect(() => {
     if (imageFile !== '') {

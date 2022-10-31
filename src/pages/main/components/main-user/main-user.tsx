@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import './main-user.scss'
 import defAva from '../../assets/def-ava.png'
-import { hookMainUser } from '../../../../shared/hook'
+import { useMainUser } from '../../../../shared/hook'
 
 const MainUser: FC = () => {
-  const { avatar, name } = hookMainUser()
+  const { avatar, name } = useMainUser()
   console.log(' => > ', name)
 
   return (

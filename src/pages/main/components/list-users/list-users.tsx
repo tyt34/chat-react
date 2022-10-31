@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import './list-users.scss'
 import { User } from './components'
-import { hookListUsers } from '../../../../shared/hook'
+import { useUsers } from '../../../../shared/hook'
 
 const ListUsers: FC = () => {
-  const list = hookListUsers()
+  const list = useUsers()
 
   return (
     <div className="list-users__left-mid">
