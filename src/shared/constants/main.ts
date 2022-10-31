@@ -9,6 +9,8 @@ export const socketOptions = {
   getNewMessage: 'message for all'
 }
 
+export const textForFile = 'Файл не выбран'
+
 export let urlApi: any
 
 if (process.env.REACT_APP_URLAPI === 'test') {

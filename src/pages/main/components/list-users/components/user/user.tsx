@@ -1,6 +1,5 @@
 import React, { FC, memo } from 'react'
 import './user.scss'
-import defAva from '../../../../assets/def-ava.png'
 
 interface Props {
   name: string
@@ -15,7 +14,7 @@ const User: FC<Props> = ({ name, avatar }: Props) => {
       </p>
       <img
         className="user-ava"
-        src={ avatar !== '' && avatar !== 'default' ? avatar : defAva}
+        src={avatar}
         alt="аватарка"
       />
     </li>

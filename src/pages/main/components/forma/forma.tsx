@@ -4,26 +4,26 @@ import { addMessageMainUser } from '../../../../app/app.slice'
 import { useAppDispatch } from '../../../../shared/hook'
 import { socketOptions } from '../../../../shared/constants/main'
 import { Socket } from 'socket.io-client'
+import { InputFile } from './components'
+import { textForFile } from '../../../../shared/constants/main'
 
 interface Props {
   socket: Socket
 }
 
-const textForFile = 'Файл не выбран'
-
 const Forma: FC<Props> = ({ socket }: Props) => {
-  const [text, setText] = useState('')
-  const [nameFile, setNameFile] = useState(textForFile)
   const dispatch = useAppDispatch()
   const inputFile = useRef<any>(null)
-
+  const [text, setText] = useState('')
+  const [nameFile, setNameFile] = useState(textForFile)
+  const [imgInBase64, setImgInBase64] = useState('')
+    
   const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setText(e.target.value)
   }
-
+  
   const handleButtonSend = (e: React.FormEvent<HTMLButtonElement>): void => {
-    if (text !== '') {
-      let imgInBase64: any = ''
+    if (text !== '' || imgInBase64 !== '' ) {
 
       /**
        * смещение скролла, только если сам пользователь написал сообщение
@@ -34,39 +34,15 @@ const Forma: FC<Props> = ({ socket }: Props) => {
       }
       setTimeout(scrollToDown, 250)
 
-      if (inputFile.current?.files?.[0] !== undefined) { // для отправки картинки и текста
-        const reader = new FileReader()
-        reader.addEventListener('load', () => {
-          imgInBase64 = reader.result
-          dispatch(addMessageMainUser({ text, imgInBase64 }))
-
-          socket.emit(socketOptions.sendChatMessage, {
-            message: text,
-            imageFile: imgInBase64
-          })
-
-          setText('')
-        })
-        reader.readAsDataURL(inputFile.current?.files?.[0])
-        inputFile.current.value = null
-        setNameFile(textForFile)
-      } else { // для отправки текста
-        dispatch(addMessageMainUser({ text, imgInBase64: '' }))
-
-        socket.emit(socketOptions.sendChatMessage, {
-          message: text,
-          imageFile: ''
-        })
-
-        setText('')
-      }
-    }
-  }
-
-  const handleChange = (): void => {
-    if (inputFile.current?.files?.[0] !== undefined) {
-      setNameFile(inputFile.current?.files?.[0].name)
-      setText((prevText) => { return prevText + ' ' })
+      dispatch(addMessageMainUser({ text, imgInBase64 }))
+      socket.emit(socketOptions.sendChatMessage, {
+        message: text,
+        imageFile: imgInBase64
+      })
+      inputFile.current.value = null
+      setNameFile(textForFile)
+      setImgInBase64('')
+      setText('')
     }
   }
 
@@ -89,30 +65,12 @@ const Forma: FC<Props> = ({ socket }: Props) => {
           >
             Отправить сообщение
           </button>
-          <div className="forma__input-send">
-            <label
-              id="label-input"
-              className="forma__input-label"
-              htmlFor="send-image"
-            >
-              <p>
-                Прикрепить картинку
-              </p>
-            </label>
-            <input
-              onChange={handleChange}
-              ref={inputFile}
-              id="send-image"
-              className="forma__input"
-              type="file"
-              accept=".png,.jpeg,.ico,.gif,.jpg"
-            />
-            <div className="forma__input-prev">
-              <p className="forma__prev-text">
-                {nameFile}
-              </p>
-            </div>
-          </div>
+          <InputFile 
+            inputFile={inputFile}
+            setNameFile={setNameFile}
+            nameFile={nameFile}
+            setImgInBase64={setImgInBase64}
+          />
         </div>
       </form>
     </div>
