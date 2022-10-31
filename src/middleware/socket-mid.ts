@@ -5,7 +5,7 @@ import {
   addMessageOtherUser, 
   addUser, 
   removeUser,
-} from "../pages/main/main.slice"
+} from "../app/app.slice"
 
 export function SocketMid(store: MiddlewareAPI<void>) {
   const socket = io(urlApi)

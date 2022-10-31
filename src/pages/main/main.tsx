@@ -1,6 +1,6 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import './main.scss'
-import { useAppDispatch } from '../../shared/hook'
+import { Socket } from 'socket.io-client'
 import {
   CountUsers,
   Forma,
@@ -8,33 +8,12 @@ import {
   ListUsers,
   MainUser
 } from './components'
-import io from 'socket.io-client'
-import {
-  addUser,
-  setMainUser
-} from './main.slice'
-import { IUser } from '../../shared/types/main'
-import { socketOptions, urlApi } from '../../shared/constants/main'
 
-const socket = io(urlApi)
+interface Props {
+  socket: Socket
+}
 
-const Main: FC = () => {
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    socket.emit(socketOptions.giveName)
-
-    socket.on(socketOptions.giveName, (user) => {
-      dispatch(setMainUser(user))
-    })
-
-    socket.on(socketOptions.giveAllUsers, (users) => {
-      users.forEach((u: IUser) => {
-        dispatch(addUser(u))
-      })
-    })
-  }, [])
-
+const Main: FC<Props> = ({ socket }: Props) => {
   return (
     <section
       className='main'

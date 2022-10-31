@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { mainSlice } from '../pages/main/main.slice'
+import { mainSlice } from './app.slice'
 import { Logger } from '../middleware/logger'
 import { SocketMid } from '../middleware/socket-mid'
 

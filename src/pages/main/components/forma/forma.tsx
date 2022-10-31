@@ -1,11 +1,12 @@
 import React, { FC, useState, useRef } from 'react'
 import './forma.scss'
-import { addMessageMainUser } from '../../main.slice'
+import { addMessageMainUser } from '../../../../app/app.slice'
 import { useAppDispatch } from '../../../../shared/hook'
 import { socketOptions } from '../../../../shared/constants/main'
+import { Socket } from 'socket.io-client'
 
 interface Props {
-  socket: any
+  socket: Socket
 }
 
 const textForFile = 'Файл не выбран'
@@ -38,10 +39,12 @@ const Forma: FC<Props> = ({ socket }: Props) => {
         reader.addEventListener('load', () => {
           imgInBase64 = reader.result
           dispatch(addMessageMainUser({ text, imgInBase64 }))
+
           socket.emit(socketOptions.sendChatMessage, {
             message: text,
             imageFile: imgInBase64
           })
+
           setText('')
         })
         reader.readAsDataURL(inputFile.current?.files?.[0])
@@ -49,10 +52,12 @@ const Forma: FC<Props> = ({ socket }: Props) => {
         setNameFile(textForFile)
       } else { // для отправки текста
         dispatch(addMessageMainUser({ text, imgInBase64: '' }))
+
         socket.emit(socketOptions.sendChatMessage, {
           message: text,
           imageFile: ''
         })
+
         setText('')
       }
     }

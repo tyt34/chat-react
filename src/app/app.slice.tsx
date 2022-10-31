@@ -1,18 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { store } from '../../app/store'
-import { IUser, IMessage } from '../../shared/types/main'
-import { checkInArray } from '../../shared/utils/main'
+import { store } from './store'
+import { IUser, IMessage } from '../shared/types/main'
+import { checkInArray } from '../shared/utils/main'
+// import { io, Socket } from "socket.io-client";
+// import { urlApi } from '../shared/constants/main'
+/*
+interface ServerToClientEvents {
+  noArg: () => void;
+  basicEmit: (a: number, b: string, c: Buffer) => void;
+  withAck: (d: string, callback: (e: number) => void) => void;
+}
 
+interface ClientToServerEvents {
+  hello: () => void;
+}
+
+const socket = io(urlApi)
+*/
 interface Props {
-  a: string
   mainUser: IUser
   listUsers: IUser[]
   listMessages: IMessage[]
+  // socketApi: Socket
 }
 
 const initialState: Props = {
-  a: '',
   mainUser: {
     id: '',
     name: '',
@@ -20,6 +33,7 @@ const initialState: Props = {
   },
   listUsers: [],
   listMessages: []
+  // socketApi: socket
 }
 
 interface MessageAndImg {
@@ -31,9 +45,6 @@ export const mainSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
-    replaceA: (state, action: PayloadAction<string>) => {
-      state.a = action.payload
-    },
     setMainUser: (state, action: PayloadAction<IUser>) => {
       state.mainUser.id = action.payload.id
       state.mainUser.name = action.payload.name
@@ -74,7 +85,6 @@ export const mainSlice = createSlice({
 })
 
 export const {
-  replaceA,
   setMainUser,
   addUser,
   removeUser,

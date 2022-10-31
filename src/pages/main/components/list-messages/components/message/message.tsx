@@ -53,29 +53,28 @@ const Message: FC<Props> = ({ id, name, avatar, imageFile, message, setImagePopu
         </div>
 
         {
-        imageFile &&
-        <div className="message__img">
-          <p className="message__img-title">
-            Прикрепленное изображение:
-          </p>
-          <img
-            onClick={handleClick}
-            className="message__img-mini"
-            src={imageBlob}
-            alt="изображение, которое прикрепил пользователь"
-          />
-        </div>
+          imageFile !== ''
+            ? <div className="message__img">
+              <p className="message__img-title">
+                Прикрепленное изображение:
+              </p>
+              <img
+                onClick={handleClick}
+                className="message__img-mini"
+                src={imageBlob}
+                alt="изображение, которое прикрепил пользователь"
+              />
+            </div>
+            : null
         }
       </li>
     </>
   )
 }
 
-/*
-const messagePropsAreEqual = (prevMes:any, nextMes:any) => {
-  return true
-}
-*/
-// export default memo(Message)
-// export default Message
+/**
+ * так как для сообщений доступно только одно действие:
+ * добавление на страницу при отправке / получение
+ * то для перерендера случаев нет
+ */
 export default memo(Message, () => { return true })
