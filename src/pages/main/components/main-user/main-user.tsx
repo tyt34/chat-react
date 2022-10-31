@@ -6,8 +6,6 @@ import { useMainUser } from '../../../../shared/hook'
 const MainUser: FC = () => {
   const { avatar, name } = useMainUser()
 
-  console.log(' name: ', name)
-
   return (
     <div className="main-user__user">
       <p className="main-user__user-name">

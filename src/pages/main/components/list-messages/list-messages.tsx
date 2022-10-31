@@ -1,16 +1,27 @@
-import React, { FC, useState, useCallback } from 'react'
+import React, { FC, useState, useCallback, useRef, useEffect } from 'react'
 import './list-messages.scss'
 import { Message, Popup } from './components'
-import { useMessages } from '../../../../shared/hook'
+import { useMessages, useMainUser } from '../../../../shared/hook'
 
 const ListMessages: FC = () => {
   const list = useMessages()
-  console.log(' list: ', list)
+  const ulList = useRef<HTMLUListElement>(null)
+  const { name } = useMainUser()
   const [imgPopup, setImgPopup] = useState('')
 
   const memoSetImagePopup = useCallback((image: string) => {
     setImgPopup(image)
   }, [imgPopup])
+
+  /**
+    * смещение скролла, только если пользователь написал сообщение
+    * то есть на входящии сообщения смещения не будет
+    */
+  useEffect(() => {
+    if (list.at(-1)?.name === name) {
+      ulList?.current?.scrollTo(0, ulList.current?.scrollHeight)
+    }
+  }, [list])
 
   /**
    * в данном случае, message.id это id пользователя, который отправляет сообщение
@@ -19,7 +30,7 @@ const ListMessages: FC = () => {
    */
   return (
     <>
-      <ul className="list-messages">
+      <ul className="list-messages" ref={ulList}>
         {
           list.length !== 0
             ? list.map((message, i) => (

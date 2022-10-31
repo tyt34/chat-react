@@ -33,15 +33,14 @@ const Forma: FC<Props> = ({ socket }: Props) => {
   const handleButtonSend = (e: React.FormEvent<HTMLButtonElement>): void => {
     if (text !== '' || imgInBase64 !== '' ) {
 
-      /**
-       * смещение скролла, только если сам пользователь написал сообщение
-       */
+      
+      /*
       const scrollToDown = (): void => {
         const scrollBlock = document.getElementsByClassName('list-messages')[0]
         scrollBlock.scrollTo(0, scrollBlock.scrollHeight)
       }
       setTimeout(scrollToDown, 250)
-
+      */
       dispatch(addMessageMainUser({ text, imgInBase64 }))
       socket.emit(socketOptions.sendChatMessage, {
         message: text,
