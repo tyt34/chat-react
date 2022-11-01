@@ -94,6 +94,6 @@
   }
 
   .forma__input-prev {
-    @include size(calc(100% - #{$widthLeftBlockBig} - 40px), 20px);
+    @include size(calc(100% - #{$widthButtonSmall} - 40px), 20px);
   }
 }
