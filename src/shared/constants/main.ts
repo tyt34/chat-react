@@ -13,8 +13,8 @@ export const textForFile = 'Файл не выбран'
 
 export let urlApi: any
 
-if (process.env.REACT_APP_URLAPI === 'test') {
-  urlApi = 'http://localhost:3001/'
-} else {
+if (process.env.REACT_APP_URLAPI === 'prod') {
   urlApi = 'https://chat-node-js-backend.glitch.me/'
+} else {
+  urlApi = 'http://localhost:3001/'
 }
