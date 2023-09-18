@@ -1,5 +1,5 @@
 export interface Action {
-  type: any;
+  type: any
 }
 
 export interface Dispatch<S> {

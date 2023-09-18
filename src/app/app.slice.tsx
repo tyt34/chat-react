@@ -44,25 +44,34 @@ export const mainSlice = createSlice({
         return user.id !== action.payload
       })
     },
-    addMessageMainUser: (state, action: PayloadAction<MessageAndImg>) => {
-      state.listMessages = [...state.listMessages, {
-        id: state.mainUser.id,
-        avatar: state.mainUser.avatar,
-        name: state.mainUser.name,
-        message: action.payload.text,
-        imageFile: action.payload.imgInBase64
-      }]
+    addMessageMainUser: (
+      state,
+      action: PayloadAction<MessageAndImg>
+    ) => {
+      state.listMessages = [
+        ...state.listMessages,
+        {
+          id: state.mainUser.id,
+          avatar: state.mainUser.avatar,
+          name: state.mainUser.name,
+          message: action.payload.text,
+          imageFile: action.payload.imgInBase64
+        }
+      ]
     },
     addMessageOtherUser: (state, action: PayloadAction<IMessage>) => {
       const { avatar, id, imageFile, message, name } = action.payload
       if (id !== state.mainUser.id) {
-        state.listMessages = [...state.listMessages, {
-          id,
-          avatar,
-          name,
-          message,
-          imageFile
-        }]
+        state.listMessages = [
+          ...state.listMessages,
+          {
+            id,
+            avatar,
+            name,
+            message,
+            imageFile
+          }
+        ]
       }
     }
   }

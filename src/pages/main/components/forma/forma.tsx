@@ -2,7 +2,10 @@ import React, { FC, useState, useRef } from 'react'
 import './forma.scss'
 import { addMessageMainUser } from '../../../../app/app.slice'
 import { useAppDispatch } from '../../../../shared/hook'
-import { socketOptions, textForFile } from '../../../../shared/constants/main'
+import {
+  socketOptions,
+  textForFile
+} from '../../../../shared/constants/main'
 import { Socket } from 'socket.io-client'
 import { InputFile } from './components'
 
@@ -25,11 +28,13 @@ const Forma: FC<Props> = ({ socket }: Props) => {
     setImgInBase64(base64)
   }
 
-  const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+  const handleChangeText = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
     setText(e.target.value)
   }
 
-  const handleButtonSend = (e: React.FormEvent<HTMLButtonElement>): void => {
+  const handleButtonSend = (): void => {
     if (text !== '' || imgInBase64 !== '') {
       dispatch(addMessageMainUser({ text, imgInBase64 }))
       socket.emit(socketOptions.sendChatMessage, {
@@ -58,7 +63,7 @@ const Forma: FC<Props> = ({ socket }: Props) => {
             className="forma__button"
             onClick={handleButtonSend}
             id="send-message"
-            type='button'
+            type="button"
           >
             Отправить сообщение
           </button>

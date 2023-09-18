@@ -1,5 +1,3 @@
 import Popup from './popup'
 
-export {
-  Popup
-}
+export { Popup }

@@ -5,6 +5,6 @@ export interface IUser {
 }
 
 export interface IMessage extends IUser {
-  imageFile: string,
+  imageFile: string
   message: string
 }

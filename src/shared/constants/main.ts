@@ -1,4 +1,4 @@
-import env from "react-dotenv"
+import env from 'react-dotenv'
 
 export const socketOptions = {
   sendChatMessage: 'chat message',

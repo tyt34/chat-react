@@ -8,7 +8,12 @@ interface Props {
   setImgInBase64: (base64: any) => void
 }
 
-const InputFile: FC<Props> = ({ inputFile, setNameFile, nameFile, setImgInBase64 }: Props) => {
+const InputFile: FC<Props> = ({
+  inputFile,
+  setNameFile,
+  nameFile,
+  setImgInBase64
+}: Props) => {
   const handleChange = (): void => {
     if (inputFile.current?.files?.[0] !== undefined) {
       setNameFile(inputFile.current?.files?.[0].name)
@@ -38,9 +43,7 @@ const InputFile: FC<Props> = ({ inputFile, setNameFile, nameFile, setImgInBase64
         htmlFor="send-image"
         onClick={handleClick}
       >
-        <p>
-          Прикрепить картинку
-        </p>
+        <p>Прикрепить картинку</p>
       </label>
       <input
         onChange={handleChange}
@@ -51,9 +54,7 @@ const InputFile: FC<Props> = ({ inputFile, setNameFile, nameFile, setImgInBase64
         accept=".png,.jpeg,.ico,.gif,.jpg"
       />
       <div className="forma__input-prev">
-        <p className="forma__prev-text">
-          {nameFile}
-        </p>
+        <p className="forma__prev-text">{nameFile}</p>
       </div>
     </section>
   )

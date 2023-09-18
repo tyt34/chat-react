@@ -1,13 +1,13 @@
 @mixin size($width, $height) {
   width: $width;
   height: $height;
-};
+}
 
 @mixin flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
-};
+}
 
 $heightMainUserSmall: 94px;
 $heightFormaSmall: 137px;
@@ -20,3 +20,6 @@ $heightMainUserBig: 170px;
 $heightTopBig: 48px;
 
 $heightPanelPhone: 99px;
+
+$mainColor: greenyellow;
+$hoverBackgroundColor: red;

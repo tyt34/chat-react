@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './intro.scss'
 import { RouteNames } from '../../router'
+import './intro.scss'
 
-const Intro: FC = () => {
+export const Intro: FC = () => {
   const navigate = useNavigate()
 
   const changePage = (): void => {
@@ -11,31 +11,27 @@ const Intro: FC = () => {
   }
 
   return (
-    <section
-      className='intro'
-    >
-      <div className='intro__container'>
+    <section className="intro">
+      <div className="intro__container">
         <div>
-          <p className='intro__welcome'>
+          <p className="intro__welcome">
             Данное приложение - однокомнатный чат.
           </p>
-          <p className='intro__welcome'>
-            При нажатие на &apos;Вход&apos; вам будет присвоено случайное имя,
-            после чего вы сможете общаться сдругими участниками чата.
+          <p className="intro__welcome">
+            При нажатие на &apos;Вход&apos; вам будет присвоено
+            случайное имя, после чего вы сможете общаться сдругими
+            участниками чата.
           </p>
         </div>
 
         <a
-          className='intro__link'
+          className="intro__link"
           onClick={changePage}
+          href={`#${RouteNames.MAIN}`}
         >
-          <button>
-            Вход
-          </button>
+          <button>Вход</button>
         </a>
-    </div>
+      </div>
     </section>
   )
 }
-
-export default Intro

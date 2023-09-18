@@ -2,21 +2,22 @@
 
 .intro {
   display: flex;
-  background-color: black;
   height: 100vh;
+  background-color: black;
   font-size: 20px;
   font-family: 'Inter', Arial, sans-serif;
 }
 
 .intro__container {
+  @include size(420px, 185px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @include size(420px, 185px);
-  background-color: antiquewhite;
   border-radius: 30px;
   margin: auto;
   padding: 25px;
+  color: $mainColor;
+  border: 3px $mainColor solid;
 }
 
 .intro__welcome {
@@ -24,14 +25,23 @@
 }
 
 .intro__link {
+  @include size(calc(100% - 40px), 35px);
   display: flex;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  @include size(calc(100% - 40px), 35px);
-  background-color: aquamarine;
+  background-color: $mainColor;
   border-radius: 7px;
   cursor: pointer;
+}
+
+.intro__link:hover {
+  background-color: $hoverBackgroundColor;
+
+  button {
+    color: $mainColor;
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -40,6 +50,6 @@
   }
 
   .intro__container {
-    height: 260px
+    height: 260px;
   }
 }

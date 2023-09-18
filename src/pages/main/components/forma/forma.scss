@@ -1,7 +1,7 @@
 @import '../../../../shared/mixins.scss';
 
 .forma__area {
-  background-color: #BEDAD4;
+  background-color: #bedad4;
   height: $heightFormaBig;
 }
 
@@ -69,7 +69,10 @@
   .forma__area {
     position: fixed;
     bottom: 0;
-    @include size(100%, calc(#{$heightMainUserSmall} + #{$heightFormaSmall}));
+    @include size(
+      100%,
+      calc(#{$heightMainUserSmall} + #{$heightFormaSmall})
+    );
   }
 
   .forma__textarea {
@@ -86,11 +89,11 @@
   }
 
   .forma__button {
-    height: 20px
+    height: 20px;
   }
 
   .forma__input-label {
-    height: 20px
+    height: 20px;
   }
 
   .forma__input-prev {

@@ -1,15 +1,19 @@
-import { MiddlewareAPI, Dispatch, Action } from "../shared/types/middleware"
+import {
+  MiddlewareAPI,
+  Dispatch,
+  Action
+} from '../shared/types/middleware'
 import io from 'socket.io-client'
-import { socketOptions, urlApi } from "../shared/constants/main"
-import { 
-  addMessageOtherUser, 
-  addUser, 
-  removeUser,
-} from "../app/app.slice"
+import { socketOptions, urlApi } from '../shared/constants/main'
+import {
+  addMessageOtherUser,
+  addUser,
+  removeUser
+} from '../app/app.slice'
 
 export function SocketMid(store: MiddlewareAPI<void>) {
   const socket = io(urlApi)
-  
+
   socket.on(socketOptions.getNewMessage, (messageObj) => {
     store.dispatch(addMessageOtherUser(messageObj))
   })

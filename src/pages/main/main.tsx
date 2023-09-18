@@ -13,25 +13,19 @@ interface Props {
   socket: Socket
 }
 
-const Main: FC<Props> = ({ socket }: Props) => {
+export const Main: FC<Props> = ({ socket }: Props) => {
   return (
-    <section
-      className='main'
-    >
+    <section className="main">
       <section className="main__left">
         <CountUsers />
         <ListUsers />
         <MainUser />
       </section>
 
-      <section className='main__right'>
+      <section className="main__right">
         <ListMessages />
-        <Forma
-          socket={socket}
-        />
+        <Forma socket={socket} />
       </section>
     </section>
   )
 }
-
-export default Main

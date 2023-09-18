@@ -1,5 +1,3 @@
 import ListMessages from './list-messages'
 
-export {
-  ListMessages
-}
+export { ListMessages }

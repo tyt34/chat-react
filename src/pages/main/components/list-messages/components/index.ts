@@ -1,7 +1,4 @@
-import { Message } from "./message"
-import { Popup } from "./popup"
+import { Message } from './message'
+import { Popup } from './popup'
 
-export {
-  Message,
-  Popup
-}
+export { Message, Popup }

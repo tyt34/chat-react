@@ -12,11 +12,7 @@ const Popup: FC<Props> = ({ imgPopup, setImagePopup }: Props) => {
   }
 
   return (
-    <section
-      className={
-        imgPopup !== '' ? 'popup popup_open' : 'popup'
-      }
-    >
+    <section className={imgPopup !== '' ? 'popup popup_open' : 'popup'}>
       <div className="popup__container">
         <button
           onClick={handleClick}

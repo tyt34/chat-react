@@ -2,20 +2,10 @@
   "name": "reactjs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tyt34.github.io/chat-react-js",
+  "homepage": "https://tyt34.github.io/chat-react-js/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.0",
-    "@types/react": "^18.0.23",
-    "@types/react-dom": "^18.0.7",
-    "@types/react-redux": "^7.1.24",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/socket.io": "^3.0.2",
-    "node-sass": "^6.0.0",
+    "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dotenv": "^0.1.3",
@@ -24,16 +14,14 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "socket.io-client": "^4.5.3",
-    "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "echo 'REACT_APP_URLAPI=prod' > .env; gh-pages -d build",
     "start": "echo 'REACT_APP_URLAPI=test' > .env; react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "start-w": "react-scripts start",
     "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
-    "test": "react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts test",
-    "eject": "react-scripts eject",
     "eslint": "eslint 'src/**/*.tsx' --fix"
   },
   "browserslist": {
@@ -49,11 +37,23 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.0",
+    "@types/react": "^18.0.23",
+    "@types/react-dom": "^18.0.7",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/socket.io": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "eslint": "^8.26.0",
     "eslint-plugin-react": "^7.31.10",
     "gh-pages": "^4.0.0",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "prettier": "2.8.7",
+    "typescript": "^4.8.4"
   }
 }

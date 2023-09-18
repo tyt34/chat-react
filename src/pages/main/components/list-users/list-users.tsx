@@ -9,17 +9,15 @@ const ListUsers: FC = () => {
   return (
     <div className="list-users__left-mid">
       <ul className="list-users__list">
-        {
-          list.length !== 0
-            ? list.map((user) => (
+        {list.length !== 0
+          ? list.map((user) => (
               <User
                 key={user.id}
                 name={user.name}
                 avatar={user.avatar}
               />
             ))
-            : null
-        }
+          : null}
       </ul>
     </div>
   )

@@ -9,9 +9,7 @@ interface Props {
 const User: FC<Props> = ({ name, avatar }: Props) => {
   return (
     <li className="user">
-      <p className="user-text">
-       {name}
-      </p>
+      <p className="user-text">{name}</p>
       <img
         className="user-ava"
         src={avatar}
