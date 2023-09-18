@@ -9,9 +9,9 @@ export const Logger: Middleware =
   (store: MiddlewareAPI<void>) =>
   (next: Dispatch<void>) =>
   <A extends Action>(action: A) => {
-    console.log(' dis: ', action)
-    console.log(' bef: ', store.getState())
-    let result = next(action)
-    console.log(' aft: ', store.getState())
+    console.info(' dis: ', action)
+    console.info(' bef: ', store.getState())
+    const result = next(action)
+    console.info(' aft: ', store.getState())
     return result
   }

@@ -8,7 +8,7 @@
 
 .main__left {
   @include size(#{$widthLeftBlockBig}, 100vh);
-  background-color: aliceblue;
+  background-color: $backgroundColor;
 }
 
 .main__right {

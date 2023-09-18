@@ -1,12 +1,13 @@
 import env from 'react-dotenv'
 
 export const socketOptions = {
-  sendChatMessage: 'chat message',
-  giveName: 'give a name',
-  giveAllUsers: 'now list users',
+  addOldUser: 'add old user',
+  getNewMessage: 'message for all',
   getNewUser: 'add new user',
   getOldUser: 'remove user',
-  getNewMessage: 'message for all'
+  giveAllUsers: 'now list users',
+  giveName: 'give a name',
+  sendChatMessage: 'chat message'
 }
 
 export const textForFile = 'Файл не выбран'

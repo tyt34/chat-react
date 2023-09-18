@@ -17,12 +17,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "echo 'REACT_APP_URLAPI=prod' > .env; gh-pages -d build",
-    "start": "echo 'REACT_APP_URLAPI=test' > .env; react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts start",
-    "start-w": "react-scripts start",
     "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
-    "eslint": "eslint 'src/**/*.tsx' --fix"
+    "deploy": "echo 'REACT_APP_URLAPI=prod' > .env; gh-pages -d build",
+    "eslint": "eslint 'src/**/*.tsx' --fix",
+    "predeploy": "npm run build",
+    "pret": "npx prettier --write .",
+    "start": "echo 'REACT_APP_URLAPI=test' > .env; react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "start-w": "react-scripts start"
   },
   "browserslist": {
     "production": [

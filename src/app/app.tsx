@@ -10,21 +10,36 @@ import { Intro, Main } from '../pages'
 
 const socket = io(urlApi)
 
-const App: FC = () => {
+export const App: FC = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    socket.emit(socketOptions.giveName)
-
-    socket.on(socketOptions.giveName, (user) => {
-      dispatch(setMainUser(user))
-    })
-
+    socket.emit(socketOptions.giveAllUsers)
     socket.on(socketOptions.giveAllUsers, (users) => {
       users.forEach((u: IUser) => {
         dispatch(addUser(u))
       })
     })
+
+    const storageData: IUser = {
+      avatar: sessionStorage.getItem('avatar') ?? '',
+      id: sessionStorage.getItem('id') ?? '',
+      name: sessionStorage.getItem('name') ?? ''
+    }
+
+    if (storageData.id) {
+      dispatch(setMainUser(storageData))
+      socket.emit(socketOptions.addOldUser, storageData)
+    } else {
+      socket.emit(socketOptions.giveName)
+
+      socket.on(socketOptions.giveName, (user: IUser) => {
+        sessionStorage.setItem('avatar', user.avatar)
+        sessionStorage.setItem('id', user.id)
+        sessionStorage.setItem('name', user.name)
+        dispatch(setMainUser(user))
+      })
+    }
   }, [])
 
   return (
@@ -61,5 +76,3 @@ const App: FC = () => {
     </section>
   )
 }
-
-export default App

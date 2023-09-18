@@ -1,8 +1,10 @@
 @import '../../../../shared/mixins.scss';
 
 .forma__area {
-  background-color: #bedad4;
+  background-color: $backgroundColor;
   height: $heightFormaBig;
+  border: $defaultBorder;
+  box-sizing: border-box;
 }
 
 .forma__form {
@@ -23,7 +25,7 @@
 
 .forma__button {
   @include size(#{$widthButtonSmall}, 40px);
-  background-color: #f3b633a8;
+  background-color: $mainColor;
   font-size: 12px;
   border-radius: 5px;
   margin-right: 30px;
@@ -44,7 +46,7 @@
   @include flexCenter;
   @include size(138px, 38px);
   border: 1px solid hsla(0, 10%, 30%, 0.314);
-  background-color: #e1bae9;
+  background-color: $mainColor;
   margin-top: 10px;
   border-radius: 5px;
 }
@@ -52,7 +54,7 @@
 .forma__input-label {
   @include flexCenter;
   @include size(#{$widthButtonSmall}, 40px);
-  background-color: #f3b633a8;
+  background-color: $mainColor;
   font-size: 12px;
   border-radius: 5px;
   margin-right: 30px;

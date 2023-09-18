@@ -22,7 +22,7 @@ const initialState: Props = {
 
 interface MessageAndImg {
   text: string
-  imgInBase64: any
+  imgInBase64: string
 }
 
 export const mainSlice = createSlice({

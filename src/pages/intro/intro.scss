@@ -3,7 +3,7 @@
 .intro {
   display: flex;
   height: 100vh;
-  background-color: black;
+  background-color: $backgroundColor;
   font-size: 20px;
   font-family: 'Inter', Arial, sans-serif;
 }
@@ -17,7 +17,8 @@
   margin: auto;
   padding: 25px;
   color: $mainColor;
-  border: 3px $mainColor solid;
+  border: $defaultBorder;
+  box-sizing: border-box;
 }
 
 .intro__welcome {

@@ -24,8 +24,9 @@
 }
 
 .message-bottom {
-  background-color: #effdde;
   padding: 10px;
+  border: $defaultBorder;
+  box-sizing: border-box;
   border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
@@ -39,7 +40,6 @@
 .message__img {
   padding: 10px;
   border-radius: 20px;
-  background-color: #effdde;
   margin-left: 10px;
   margin-right: 10px;
 }

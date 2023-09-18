@@ -4,7 +4,8 @@
   height: $heightMainUserBig;
   display: flex;
   flex-direction: column;
-  background-color: #6cb8db;
+  border: $defaultBorder;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 600px) {

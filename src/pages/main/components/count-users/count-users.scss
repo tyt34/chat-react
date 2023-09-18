@@ -4,8 +4,9 @@
   display: flex;
   justify-content: center;
   height: $heightTopBig;
-  background-color: #e7e740;
   font-size: 16px;
+  border: $defaultBorder;
+  box-sizing: border-box;
 }
 
 .count-users__text-top {
@@ -13,12 +14,14 @@
   right: 5px;
   padding-top: 15px;
   padding-bottom: 15px;
+  color: $mainColor;
 }
 
 @media screen and (max-width: 600px) {
   .count-users__left-top {
     @include flexCenter;
     @include size(100%, 20px);
+    color: $mainColor;
     font-size: 12px;
   }
 
