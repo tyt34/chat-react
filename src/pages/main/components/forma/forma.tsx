@@ -13,7 +13,7 @@ interface Props {
   socket: Socket
 }
 
-const Forma: FC<Props> = ({ socket }: Props) => {
+export const Forma: FC<Props> = ({ socket }: Props) => {
   const dispatch = useAppDispatch()
   const inputFile = useRef<any>(null)
   const [text, setText] = useState('')
@@ -78,5 +78,3 @@ const Forma: FC<Props> = ({ socket }: Props) => {
     </div>
   )
 }
-
-export default Forma

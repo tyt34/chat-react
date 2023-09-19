@@ -3,7 +3,7 @@ import './main-user.scss'
 import defAva from '../../assets/def-ava.png'
 import { useMainUser } from '../../../../shared/hook'
 
-const MainUser: FC = () => {
+export const MainUser: FC = () => {
   const { avatar, name } = useMainUser()
 
   return (
@@ -20,5 +20,3 @@ const MainUser: FC = () => {
     </div>
   )
 }
-
-export default MainUser

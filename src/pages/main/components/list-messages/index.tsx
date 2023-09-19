@@ -1,3 +1,1 @@
-import ListMessages from './list-messages'
-
-export { ListMessages }
+export * from './list-messages'

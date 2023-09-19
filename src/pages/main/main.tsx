@@ -1,6 +1,4 @@
 import React, { FC } from 'react'
-import './main.scss'
-import { Socket } from 'socket.io-client'
 import {
   CountUsers,
   Forma,
@@ -8,6 +6,8 @@ import {
   ListUsers,
   MainUser
 } from './components'
+import { Socket } from 'socket.io-client'
+import './main.scss'
 
 interface Props {
   socket: Socket

@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import './count-users.scss'
 import { useUsers } from '../../../../shared/hook'
 
-const CountUsers: FC = () => {
+export const CountUsers: FC = () => {
   const list = useUsers()
 
   return (
@@ -13,5 +13,3 @@ const CountUsers: FC = () => {
     </div>
   )
 }
-
-export default CountUsers

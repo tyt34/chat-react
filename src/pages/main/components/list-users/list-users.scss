@@ -1,46 +1,27 @@
 @import '../../../../shared/mixins.scss';
 
-.list-users__left-mid {
-  height: calc(100vh - #{$heightMainUserBig} - #{$heightTopBig});
+.list-users__list {
+  padding-left: 10px;
   border: $defaultBorder;
   box-sizing: border-box;
-  overflow-y: scroll;
+}
+
+.list-users__left-mid {
+  height: calc(100vh - #{$heightMainUserBig} - #{$heightTopBig});
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-}
-
-// body:hover::-webkit-scrollbar {
-//   width: 12px;
-// }
-
-// ::-webkit-scrollbar:hover {
-//   width: 12px;
-// }
-
-::-webkit-scrollbar {
-  width: 12px;
-  padding-right: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: $mainColor;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: $hoverBackgroundColor;
-  border-radius: 10px;
-}
-
-.list-users__list {
-  margin-left: 10px;
+.list-users__inside {
+  width: calc(100vw - 427px - 20px);
 }
 
 @media screen and (max-width: 600px) {
   .list-users__left-mid {
     height: 105px;
+  }
+
+  .list-users__inside {
+    width: calc(100vw - 45px);
   }
 }

@@ -3,10 +3,14 @@
 .list-messages {
   background-color: $backgroundColor;
   height: calc(100vh - #{$heightFormaBig});
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
   border: $defaultBorder;
   box-sizing: border-box;
+}
+
+.list-messages__inside {
+  width: calc(100vw - 280px);
 }
 
 @media screen and (max-width: 600px) {
@@ -15,5 +19,9 @@
       100vh - #{$heightMainUserSmall} - #{$heightFormaSmall} - #{$heightPanelPhone} -
         #{$heightTopSmall}
     );
+  }
+
+  .list-messages__inside {
+    width: calc(100vw - 30px);
   }
 }

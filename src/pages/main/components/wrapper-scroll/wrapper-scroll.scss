@@ -1,0 +1,27 @@
+@import '../../../../shared/mixins.scss';
+
+.scrollbar {
+  margin-right: 10px;
+  overflow-x: hidden;
+}
+
+.scrollbar__users {
+  height: calc(100vh - 48px - 170px - 6px);
+}
+
+.scrollbar__messages {
+  height: calc(100vh - 176px);
+}
+
+@media screen and (max-width: 600px) {
+  .scrollbar__users {
+    height: 97px;
+  }
+
+  .scrollbar__messages {
+    height: calc(
+      100vh - #{$heightMainUserSmall} - #{$heightFormaSmall} - #{$heightPanelPhone} -
+        #{$heightTopSmall} - 6px
+    );
+  }
+}

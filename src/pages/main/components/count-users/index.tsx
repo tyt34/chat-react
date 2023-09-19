@@ -1,3 +1,1 @@
-import CountUsers from './count-users'
-
-export { CountUsers }
+export * from './count-users'

@@ -1,3 +1,1 @@
-import MainUser from './main-user'
-
-export { MainUser }
+export * from './main-user'
