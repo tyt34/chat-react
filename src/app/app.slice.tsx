@@ -8,6 +8,7 @@ interface Props {
   mainUser: IUser
   listUsers: IUser[]
   listMessages: IMessage[]
+  socketId: string
 }
 
 const initialState: Props = {
@@ -17,7 +18,8 @@ const initialState: Props = {
     avatar: ''
   },
   listUsers: [],
-  listMessages: []
+  listMessages: [],
+  socketId: ''
 }
 
 interface MessageAndImg {
@@ -61,7 +63,8 @@ export const mainSlice = createSlice({
     },
     addMessageOtherUser: (state, action: PayloadAction<IMessage>) => {
       const { avatar, id, imageFile, message, name } = action.payload
-      if (id !== state.mainUser.id) {
+
+      if (id !== state.mainUser.id && id !== state.socketId) {
         state.listMessages = [
           ...state.listMessages,
           {
@@ -73,16 +76,20 @@ export const mainSlice = createSlice({
           }
         ]
       }
+    },
+    addSocketId: (state, action: PayloadAction<string>) => {
+      state.socketId = action.payload
     }
   }
 })
 
 export const {
-  setMainUser,
+  addMessageMainUser,
+  addMessageOtherUser,
+  addSocketId,
   addUser,
   removeUser,
-  addMessageMainUser,
-  addMessageOtherUser
+  setMainUser
 } = mainSlice.actions
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

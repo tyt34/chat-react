@@ -1,3 +1,1 @@
-import Popup from './popup'
-
-export { Popup }
+export * from './popup'

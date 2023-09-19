@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { RouteNames } from '../router'
 import { io } from 'socket.io-client'
-import { addUser, setMainUser } from './app.slice'
+import { addUser, setMainUser, addSocketId } from './app.slice'
 import { IUser } from '../shared/types/main'
 import { socketOptions, urlApi } from '../shared/constants/main'
 import { useAppDispatch } from '../shared/hook'
@@ -30,6 +30,10 @@ export const App: FC = () => {
     if (storageData.id) {
       dispatch(setMainUser(storageData))
       socket.emit(socketOptions.addOldUser, storageData)
+
+      socket.on(socketOptions.addOldUser, (socketId: string) => {
+        dispatch(addSocketId(socketId))
+      })
     } else {
       socket.emit(socketOptions.giveName)
 

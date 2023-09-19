@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { mainSlice } from './app.slice'
-import { Logger } from '../middleware/logger'
+// import { Logger } from '../middleware/logger'
 import { SocketMid } from '../middleware/socket-mid'
 
 export const store = configureStore({

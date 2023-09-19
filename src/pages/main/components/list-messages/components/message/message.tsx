@@ -1,13 +1,13 @@
 import React, { FC, useEffect, useState, memo } from 'react'
-import './message.scss'
 import { IMessage } from '../../../../../../shared/types/main'
 import { useMainUser } from '../../../../../../shared/hook'
+import './message.scss'
 
 export interface Props extends IMessage {
   setImagePopup: (image: string) => void
 }
 
-const Message: FC<Props> = ({
+const MessageComponent: FC<Props> = ({
   id,
   name,
   avatar,
@@ -15,16 +15,24 @@ const Message: FC<Props> = ({
   message,
   setImagePopup
 }: Props) => {
-  const [imageBlob, setImageBlob] = useState<any>('')
+  const [imageBlob, setImageBlob] = useState<string>('')
   const mainUser = useMainUser()
+
+  const classLi =
+    mainUser.id === id ? 'message message_main' : 'message'
+
+  const isImg = imageFile !== ''
 
   useEffect(() => {
     if (imageFile !== '') {
-      fetch(imageFile)
-        .then(async (res) => await res.blob())
-        .then((blob) => {
-          setImageBlob(window.URL.createObjectURL(blob))
-        })
+      const imageFromBase = async (base: string) => {
+        const resultFetch = await fetch(base)
+        const blob = await resultFetch.blob()
+        setImageBlob(window.URL.createObjectURL(blob))
+        return resultFetch
+      }
+
+      imageFromBase(imageFile)
     }
   }, [])
 
@@ -33,39 +41,33 @@ const Message: FC<Props> = ({
   }
 
   return (
-    <>
-      <li
-        className={
-          mainUser.id === id ? 'message message_main' : 'message'
-        }
-      >
-        <div className="message-top">
-          <p className="message-user">{name}</p>
+    <li className={classLi}>
+      <div className="message-top">
+        <p className="message-user">{name}</p>
+        <img
+          className="message__user-ava"
+          src={avatar}
+          alt="аватарка"
+        />
+      </div>
+      <div className="message-bottom">
+        <p className="message-text">{message}</p>
+      </div>
+
+      {isImg ? (
+        <div className="message__img">
+          <p className="message__img-title">
+            Прикрепленное изображение:
+          </p>
           <img
-            className="message__user-ava"
-            src={avatar}
-            alt="аватарка"
+            onClick={handleClick}
+            className="message__img-mini"
+            src={imageBlob}
+            alt="Изображение, которое прикрепил пользователь"
           />
         </div>
-        <div className="message-bottom">
-          <p className="message-text">{message}</p>
-        </div>
-
-        {imageFile !== '' ? (
-          <div className="message__img">
-            <p className="message__img-title">
-              Прикрепленное изображение:
-            </p>
-            <img
-              onClick={handleClick}
-              className="message__img-mini"
-              src={imageBlob}
-              alt="изображение, которое прикрепил пользователь"
-            />
-          </div>
-        ) : null}
-      </li>
-    </>
+      ) : null}
+    </li>
   )
 }
 
@@ -74,6 +76,4 @@ const Message: FC<Props> = ({
  * добавление на страницу при отправке / получение
  * то для перерендера случаев нет
  */
-export default memo(Message, () => {
-  return true
-})
+export const Message = memo(MessageComponent)

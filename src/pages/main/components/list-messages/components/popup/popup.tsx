@@ -6,7 +6,10 @@ interface Props {
   setImagePopup: (image: string) => void
 }
 
-const Popup: FC<Props> = ({ imgPopup, setImagePopup }: Props) => {
+const PopupComponent: FC<Props> = ({
+  imgPopup,
+  setImagePopup
+}: Props) => {
   const handleClick = (): void => {
     setImagePopup('')
   }
@@ -30,4 +33,4 @@ const Popup: FC<Props> = ({ imgPopup, setImagePopup }: Props) => {
   )
 }
 
-export default memo(Popup)
+export const Popup = memo(PopupComponent)
