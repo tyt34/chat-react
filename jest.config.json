@@ -1,0 +1,21 @@
+{
+  "transform": {
+    "^.+\\.(ts)x?$": "ts-jest",
+    "^.+\\.(css|scss|sass|less)$": "jest-preview/transforms/css",
+    "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "jest-preview/transforms/file"
+  },
+  "collectCoverageFrom": [
+    "src/**/*.{ts,tsx}",
+    "!**/node_modules/**",
+    "!**/index.ts",
+    "!**/index.tsx",
+    "!**/react-app-env.d.ts",
+    "!**/src/app/**"
+  ],
+  "coverageDirectory": "coverage",
+  "coverageReporters": ["json", "lcov", "text-summary"],
+  "moduleDirectories": ["src", "node_modules"],
+  "testEnvironment": "jsdom",
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+  "setupFilesAfterEnv": ["<rootDir>/src/setupTests.ts"]
+}

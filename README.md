@@ -49,6 +49,14 @@ npm i && npm run start
 ```
 
 - для *windows*
+  
+- - создайте файл *.env* с текстом
+
+```
+REACT_APP_URLAPI=test
+```
+
+- - введите команду
 
 ```
 npm i && npm run start-w
