@@ -6,8 +6,8 @@ import React, {
   useState
 } from 'react'
 import { Message, Popup } from './components'
-import { useMessages, useMainUser } from '../../../../shared/hook'
 import { WrapperScroll } from '../wrapper-scroll'
+import { useMessages, useMainUser } from '../../../../shared/hook'
 import './list-messages.scss'
 
 export const ListMessages: FC = () => {

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import './count-users.scss'
 import { useUsers } from '../../../../shared/hook'
+import './count-users.scss'
 
 export const CountUsers: FC = () => {
   const list = useUsers()

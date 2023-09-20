@@ -5,10 +5,10 @@ interface Props {
   inputFile: any
   setNameFile: (name: string) => void
   nameFile: string
-  setImgInBase64: (base64: any) => void
+  setImgInBase64: (base64: string) => void
 }
 
-const InputFile: FC<Props> = ({
+export const InputFile: FC<Props> = ({
   inputFile,
   setNameFile,
   nameFile,
@@ -21,7 +21,7 @@ const InputFile: FC<Props> = ({
   }
 
   const handleClick = (): void => {
-    inputFile.current.value = null
+    inputFile.current.value = ''
     setNameFile(textForFile)
   }
 
@@ -29,7 +29,7 @@ const InputFile: FC<Props> = ({
     if (inputFile.current?.files?.[0] !== undefined) {
       const reader = new FileReader()
       reader.addEventListener('load', () => {
-        setImgInBase64(reader.result)
+        setImgInBase64(reader.result as string)
       })
       reader.readAsDataURL(inputFile.current?.files?.[0])
     }
@@ -59,5 +59,3 @@ const InputFile: FC<Props> = ({
     </section>
   )
 }
-
-export default InputFile

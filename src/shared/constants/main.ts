@@ -12,7 +12,7 @@ export const socketOptions = {
 
 export const textForFile = 'Файл не выбран'
 
-export let urlApi: any
+export let urlApi: string
 
 if (process.env.REACT_APP_URLAPI === 'prod') {
   urlApi = 'https://chat-node-js-backend.glitch.me/'

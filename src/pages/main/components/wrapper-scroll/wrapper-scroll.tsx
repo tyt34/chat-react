@@ -17,6 +17,9 @@ export const WrapperScroll: FC<Props> = ({ children, type }) => {
   const [timer, setTimer] = useState<null | NodeJS.Timeout>(null)
   const [showScrollbar, setShowScrollbar] = useState(false)
 
+  const overflowY = showScrollbar ? 'scroll' : 'hidden'
+  const classDiv = `scrollbar scrollbar__${type}`
+
   useEffect(() => {
     const handleWheel = (event: WheelEvent) => {
       setShowScrollbar(true)
@@ -55,9 +58,9 @@ export const WrapperScroll: FC<Props> = ({ children, type }) => {
   return (
     <div
       ref={divRef}
-      className={`scrollbar scrollbar__${type}`}
+      className={classDiv}
       style={{
-        overflowY: showScrollbar ? 'scroll' : 'hidden'
+        overflowY: overflowY
       }}
     >
       {children}

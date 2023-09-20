@@ -13,19 +13,17 @@ interface Props {
   socket: Socket
 }
 
-export const Main: FC<Props> = ({ socket }: Props) => {
-  return (
-    <section className="main">
-      <section className="main__left">
-        <CountUsers />
-        <ListUsers />
-        <MainUser />
-      </section>
-
-      <section className="main__right">
-        <ListMessages />
-        <Forma socket={socket} />
-      </section>
+export const Main: FC<Props> = ({ socket }: Props) => (
+  <section className="main">
+    <section className="main__left">
+      <CountUsers />
+      <ListUsers />
+      <MainUser />
     </section>
-  )
-}
+
+    <section className="main__right">
+      <ListMessages />
+      <Forma socket={socket} />
+    </section>
+  </section>
+)

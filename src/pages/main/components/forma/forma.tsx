@@ -1,13 +1,13 @@
 import React, { FC, useState, useRef } from 'react'
-import './forma.scss'
-import { addMessageMainUser } from '../../../../app/app.slice'
-import { useAppDispatch } from '../../../../shared/hook'
 import {
   socketOptions,
   textForFile
 } from '../../../../shared/constants/main'
-import { Socket } from 'socket.io-client'
 import { InputFile } from './components'
+import { Socket } from 'socket.io-client'
+import { addMessageMainUser } from '../../../../app/app.slice'
+import { useAppDispatch } from '../../../../shared/hook'
+import './forma.scss'
 
 interface Props {
   socket: Socket
@@ -15,7 +15,9 @@ interface Props {
 
 export const Forma: FC<Props> = ({ socket }: Props) => {
   const dispatch = useAppDispatch()
-  const inputFile = useRef<any>(null)
+  const inputFile = useRef<null | HTMLInputElement | { value: null }>(
+    null
+  )
   const [text, setText] = useState('')
   const [nameFile, setNameFile] = useState(textForFile)
   const [imgInBase64, setImgInBase64] = useState('')
@@ -24,7 +26,7 @@ export const Forma: FC<Props> = ({ socket }: Props) => {
     setNameFile(name)
   }
 
-  const setImgBase64 = (base64: any): void => {
+  const setImgBase64 = (base64: string): void => {
     setImgInBase64(base64)
   }
 
@@ -41,7 +43,9 @@ export const Forma: FC<Props> = ({ socket }: Props) => {
         message: text,
         imageFile: imgInBase64
       })
-      inputFile.current.value = null
+      if (inputFile.current !== null) {
+        inputFile.current.value = null
+      }
       setNameFile(textForFile)
       setImgInBase64('')
       setText('')

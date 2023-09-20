@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { RouteNames } from '../../router'
+import { useNavigate } from 'react-router-dom'
 import './intro.scss'
 
 export const Intro: FC = () => {
@@ -9,6 +9,8 @@ export const Intro: FC = () => {
   const changePage = (): void => {
     navigate(RouteNames.MAIN)
   }
+
+  const href = `#${RouteNames.MAIN}`
 
   return (
     <section className="intro">
@@ -27,7 +29,7 @@ export const Intro: FC = () => {
         <a
           className="intro__link"
           onClick={changePage}
-          href={`#${RouteNames.MAIN}`}
+          href={href}
         >
           <button>Вход</button>
         </a>
