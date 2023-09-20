@@ -21,8 +21,10 @@ $heightTopBig: 48px;
 
 $heightPanelPhone: 99px;
 
+$widthBorder: 3px;
+
 $mainColor: greenyellow;
-// должно быть черным
-$backgroundColor: rgba(0, 0, 0, 0.329);
-$defaultBorder: 3px $mainColor solid;
+$backgroundColor: black;
+// $backgroundColor: rgb(121, 74, 74);
+$defaultBorder: $widthBorder $mainColor solid;
 $hoverBackgroundColor: red;

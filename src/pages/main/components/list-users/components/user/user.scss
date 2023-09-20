@@ -12,12 +12,15 @@
 .user-text {
   font-size: 16px;
   margin-right: 5px;
+  color: $mainColor;
 }
 
 .user-ava {
   @include size(50px, 50px);
   margin-bottom: 10px;
   border-radius: 10px;
+  border: $defaultBorder;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 600px) {

@@ -35,12 +35,16 @@ $paddingPopup: 50px;
 
 .popup__close {
   @include size(50px, 50px);
-  color: white;
+  color: $mainColor;
   font-size: 30px;
   display: block;
   position: relative;
   left: 50px;
   cursor: pointer;
+}
+
+.popup__close:hover {
+  color: $hoverBackgroundColor;
 }
 
 @media screen and (max-width: 600px) {

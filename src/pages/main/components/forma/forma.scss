@@ -1,5 +1,8 @@
 @import '../../../../shared/mixins.scss';
 
+$heightTextArea: 59px;
+$widthIndent: 15px;
+
 .forma__area {
   background-color: $backgroundColor;
   height: $heightFormaBig;
@@ -8,15 +11,22 @@
 }
 
 .forma__form {
-  padding: 15px;
+  padding: $widthIndent;
   height: $heightFormaSmall;
 }
 
 .forma__textarea {
-  @include size(100%, 59px);
+  @include size(calc(100% - #{$widthIndent}), $heightTextArea);
   font-size: 16px;
   padding: 5px;
   border-radius: 5px;
+  color: $mainColor;
+  background-color: $backgroundColor;
+}
+
+.forma__textarea:focus-visible {
+  height: calc($heightTextArea - ($widthBorder * 2));
+  outline: $defaultBorder;
 }
 
 .forma__buttons {
@@ -31,6 +41,11 @@
   margin-right: 30px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+.forma__button:hover {
+  background-color: $hoverBackgroundColor;
+  color: $mainColor;
 }
 
 .forma__input-send {
@@ -60,6 +75,11 @@
   margin-right: 30px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+.forma__input-label:hover {
+  background-color: $hoverBackgroundColor;
+  color: $mainColor;
 }
 
 .forma__prev-text {

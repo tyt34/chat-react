@@ -6,22 +6,25 @@
 }
 
 .scrollbar__users {
-  height: calc(100vh - 48px - 170px - 6px);
+  height: calc(
+    100vh - #{$heightTopBig} - #{$heightMainUserBig} - #{$widthBorder *
+      2}
+  );
 }
 
 .scrollbar__messages {
-  height: calc(100vh - 176px);
+  height: calc(100vh - #{$heightFormaBig} - #{$widthBorder * 2});
 }
 
 @media screen and (max-width: 600px) {
   .scrollbar__users {
-    height: 97px;
+    height: 106px;
   }
 
   .scrollbar__messages {
     height: calc(
       100vh - #{$heightMainUserSmall} - #{$heightFormaSmall} - #{$heightPanelPhone} -
-        #{$heightTopSmall} - 6px
+        #{$heightTopSmall} - #{$widthBorder * 2}
     );
   }
 }
