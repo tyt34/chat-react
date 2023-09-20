@@ -1,5 +1,7 @@
 @import '../../shared/mixins.scss';
 
+$smallPadding: 20px;
+
 .intro {
   display: flex;
   height: 100vh;
@@ -9,7 +11,7 @@
 }
 
 .intro__container {
-  @include size(420px, 185px);
+  @include size(420px, 265px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,10 +49,7 @@
 
 @media screen and (max-width: 600px) {
   .intro {
-    padding: 20px;
-  }
-
-  .intro__container {
-    height: 260px;
+    padding: $smallPadding;
+    height: calc(100vh - (#{$smallPadding} * 2));
   }
 }

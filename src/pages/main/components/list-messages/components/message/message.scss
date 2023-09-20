@@ -15,17 +15,19 @@
 .message-user {
   margin-right: 10px;
   font-size: 16px;
+  color: $mainColor;
 }
 
 .message__user-ava {
   margin-bottom: 10px;
   @include size(50px, 50px);
   border-radius: 10px;
+  border: $defaultBorder;
+  box-sizing: border-box;
 }
 
 .message-bottom {
   padding: 10px;
-  border: $defaultBorder;
   box-sizing: border-box;
   border-radius: 20px;
   margin-left: 10px;
@@ -35,6 +37,7 @@
 .message-text {
   word-wrap: break-word;
   font-size: 16px;
+  color: $mainColor;
 }
 
 .message__img {
@@ -45,6 +48,7 @@
 }
 
 .message__img-title {
+  color: $mainColor;
   font-size: 14px;
   margin-bottom: 10px;
 }
@@ -52,10 +56,22 @@
 .message__img-mini {
   width: 100px;
   cursor: pointer;
+  border: $defaultBorder;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.message__img-mini:hover {
+  border-color: $hoverBackgroundColor;
 }
 
 .message_main {
   margin-left: auto;
+}
+
+.message-full {
+  border: $defaultBorder;
+  border-radius: 12px;
 }
 
 @media screen and (max-width: 600px) {

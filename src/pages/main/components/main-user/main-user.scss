@@ -18,11 +18,12 @@
 }
 
 .main-user__user-name {
+  height: 36px;
   margin-top: 10px;
   font-size: 18px;
   text-align: center;
   margin-bottom: 10px;
-  height: 36px;
+  color: $mainColor;
 }
 
 @media screen and (max-width: 600px) {
@@ -36,6 +37,8 @@
 
 .main-user__user-ava {
   margin-bottom: 10px;
+  border: $defaultBorder;
+  box-sizing: border-box;
 }
 
 .main-user__ava-norm {

@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react'
 import { textForFile } from '../../../../../../shared/constants/main'
+import './input-file.scss'
 
 interface Props {
   inputFile: any
@@ -24,6 +25,13 @@ export const InputFile: FC<Props> = ({
     inputFile.current.value = ''
     setNameFile(textForFile)
   }
+
+  console.log({ nameFile })
+
+  const classText =
+    nameFile === textForFile
+      ? 'forma__prev-text'
+      : 'forma__prev-text forma__prev-text-changed'
 
   useEffect(() => {
     if (inputFile.current?.files?.[0] !== undefined) {
@@ -54,7 +62,7 @@ export const InputFile: FC<Props> = ({
         accept=".png,.jpeg,.ico,.gif,.jpg"
       />
       <div className="forma__input-prev">
-        <p className="forma__prev-text">{nameFile}</p>
+        <p className={classText}>{nameFile}</p>
       </div>
     </section>
   )

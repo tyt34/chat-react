@@ -50,23 +50,27 @@ const MessageComponent: FC<Props> = ({
           alt="аватарка"
         />
       </div>
-      <div className="message-bottom">
-        <p className="message-text">{message}</p>
-      </div>
+      <div className="message-full">
+        {message ? (
+          <div className="message-bottom">
+            <p className="message-text">{message}</p>
+          </div>
+        ) : null}
 
-      {isImg ? (
-        <div className="message__img">
-          <p className="message__img-title">
-            Прикрепленное изображение:
-          </p>
-          <img
-            onClick={handleClick}
-            className="message__img-mini"
-            src={imageBlob}
-            alt="Изображение, которое прикрепил пользователь"
-          />
-        </div>
-      ) : null}
+        {isImg ? (
+          <div className="message__img">
+            <p className="message__img-title">
+              Прикрепленное изображение:
+            </p>
+            <img
+              onClick={handleClick}
+              className="message__img-mini"
+              src={imageBlob}
+              alt="Изображение, которое прикрепил пользователь"
+            />
+          </div>
+        ) : null}
+      </div>
     </li>
   )
 }

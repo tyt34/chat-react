@@ -17,6 +17,13 @@
   font-size: 16px;
   padding: 5px;
   border-radius: 5px;
+  color: $mainColor;
+  background-color: $backgroundColor;
+}
+
+.forma__textarea:focus-visible {
+  @include size(calc(100% - 6px), 59px);
+  outline: $defaultBorder;
 }
 
 .forma__buttons {
@@ -31,6 +38,11 @@
   margin-right: 30px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+.forma__button:hover {
+  background-color: $hoverBackgroundColor;
+  color: $mainColor;
 }
 
 .forma__input-send {
@@ -60,6 +72,11 @@
   margin-right: 30px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+.forma__input-label:hover {
+  background-color: $hoverBackgroundColor;
+  color: $mainColor;
 }
 
 .forma__prev-text {
