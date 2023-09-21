@@ -1,3 +1,9 @@
+$mainColor: greenyellow;
+// $mainColor: yellow;
+$backgroundColor: black;
+// $backgroundColor: rgb(121, 74, 74);
+$hoverBackgroundColor: red;
+
 @mixin size($width, $height) {
   width: $width;
   height: $height;
@@ -13,18 +19,10 @@ $heightMainUserSmall: 94px;
 $heightFormaSmall: 137px;
 $widthButtonSmall: 140px;
 $heightTopSmall: 120px;
-
 $widthLeftBlockBig: 250px;
 $heightFormaBig: 170px;
 $heightMainUserBig: 170px;
 $heightTopBig: 48px;
-
 $heightPanelPhone: 99px;
-
 $widthBorder: 3px;
-
-$mainColor: greenyellow;
-$backgroundColor: black;
-// $backgroundColor: rgb(121, 74, 74);
 $defaultBorder: $widthBorder $mainColor solid;
-$hoverBackgroundColor: red;

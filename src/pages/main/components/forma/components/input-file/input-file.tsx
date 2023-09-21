@@ -26,8 +26,6 @@ export const InputFile: FC<Props> = ({
     setNameFile(textForFile)
   }
 
-  console.log({ nameFile })
-
   const classText =
     nameFile === textForFile
       ? 'forma__prev-text'

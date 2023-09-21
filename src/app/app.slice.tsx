@@ -1,17 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { store } from './store'
 import { IUser, IMessage } from '../shared/types/main'
+import { MessageAndImg, SliceType } from './app.slice.types'
 import { checkInArray } from '../shared/utils/main'
+import { createSlice } from '@reduxjs/toolkit'
+import { store } from './store'
 
-interface Props {
-  mainUser: IUser
-  listUsers: IUser[]
-  listMessages: IMessage[]
-  socketId: string
-}
-
-const initialState: Props = {
+export const initialState: SliceType = {
   mainUser: {
     id: '',
     name: '',
@@ -20,11 +14,6 @@ const initialState: Props = {
   listUsers: [],
   listMessages: [],
   socketId: ''
-}
-
-interface MessageAndImg {
-  text: string
-  imgInBase64: string
 }
 
 export const mainSlice = createSlice({

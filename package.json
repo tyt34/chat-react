@@ -24,8 +24,8 @@
     "pret": "npx prettier --write .",
     "start": "echo 'REACT_APP_URLAPI=test' > .env; react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts start",
     "start-w": "react-scripts start",
-    "test": "jest --config jest.config.json -- -u",
-    "c": "jest --coverage --config jest.config.json -- -u"
+    "test": "jest --config jest.config.json",
+    "c": "jest --coverage --config jest.config.json"
   },
   "browserslist": {
     "production": [
@@ -40,11 +40,11 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/dom": "^9.3.3",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/dom": "^9.3.1",
+    "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^29.5.5",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.4",
     "@types/node": "^16.18.0",
     "@types/react": "^18.0.23",
     "@types/react-dom": "^18.0.7",
@@ -53,12 +53,12 @@
     "@types/socket.io": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
-    "babel-jest": "^29.7.0",
+    "babel-jest": "^29.6.4",
     "eslint": "^8.26.0",
     "eslint-plugin-react": "^7.31.10",
     "gh-pages": "^4.0.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
+    "jest": "^29.6.4",
+    "jest-environment-jsdom": "^29.6.4",
     "jest-preview": "^0.3.1",
     "prettier": "2.8.7",
     "sass": "^1.67.0",

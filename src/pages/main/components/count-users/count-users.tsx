@@ -5,10 +5,12 @@ import './count-users.scss'
 export const CountUsers: FC = () => {
   const list = useUsers()
 
+  const amountUsers = list.length
+
   return (
     <div className="count-users__left-top">
       <span className="count-users__text-top">
-        Online пользователей: {list.length}
+        Online пользователей: {amountUsers}
       </span>
     </div>
   )
