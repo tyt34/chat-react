@@ -61,19 +61,11 @@ export const App: FC = () => {
           />
           <Route
             path={RouteNames.INTRO}
-            element={
-              <>
-                <Intro />
-              </>
-            }
+            element={<Intro />}
           />
           <Route
             path={RouteNames.MAIN}
-            element={
-              <>
-                <Main socket={socket} />
-              </>
-            }
+            element={<Main socket={socket} />}
           />
         </Routes>
       </HashRouter>

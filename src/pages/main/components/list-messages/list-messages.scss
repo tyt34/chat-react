@@ -5,7 +5,7 @@
   height: calc(100vh - #{$heightFormaBig});
   overflow-y: hidden;
   overflow-x: hidden;
-  border: $defaultBorder;
+  border: $widthBorder var(--mainColor) solid;
   box-sizing: border-box;
 }
 

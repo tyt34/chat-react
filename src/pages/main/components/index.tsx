@@ -1,3 +1,4 @@
+export * from './change-theme'
 export * from './count-users'
 export * from './forma'
 export * from './list-messages'

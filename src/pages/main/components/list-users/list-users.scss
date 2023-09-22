@@ -2,7 +2,7 @@
 
 .list-users__list {
   padding-left: 10px;
-  border: $defaultBorder;
+  border: $widthBorder var(--mainColor) solid;
   box-sizing: border-box;
 }
 

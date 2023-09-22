@@ -1,7 +1,10 @@
+:root {
+  --mainColor: greenyellow;
+  --hoverBackgroundColor: red;
+}
+
 $mainColor: greenyellow;
-// $mainColor: yellow;
 $backgroundColor: black;
-// $backgroundColor: rgb(121, 74, 74);
 $hoverBackgroundColor: red;
 
 @mixin size($width, $height) {
@@ -25,4 +28,3 @@ $heightMainUserBig: 170px;
 $heightTopBig: 48px;
 $heightPanelPhone: 99px;
 $widthBorder: 3px;
-$defaultBorder: $widthBorder $mainColor solid;

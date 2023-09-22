@@ -5,7 +5,7 @@ $smallPadding: 20px;
 .intro {
   display: flex;
   height: 100vh;
-  background-color: $backgroundColor;
+  background: var(--mainColor);
   font-size: 20px;
   font-family: 'Inter', Arial, sans-serif;
 }
@@ -18,8 +18,8 @@ $smallPadding: 20px;
   border-radius: 30px;
   margin: auto;
   padding: 25px;
-  color: $mainColor;
-  border: $defaultBorder;
+  color: var(--mainColor);
+  border: $widthBorder var(--mainColor) solid;
   box-sizing: border-box;
 }
 
@@ -31,18 +31,19 @@ $smallPadding: 20px;
   @include size(calc(100% - 40px), 35px);
   display: flex;
   justify-content: center;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  background-color: $mainColor;
+  background-color: var(--mainColor);
   border-radius: 7px;
   cursor: pointer;
 }
 
 .intro__link:hover {
-  background-color: $hoverBackgroundColor;
+  background-color: var(--hoverBackgroundColor);
 
   button {
-    color: $mainColor;
+    color: var(--mainColor);
     cursor: pointer;
   }
 }
@@ -51,5 +52,9 @@ $smallPadding: 20px;
   .intro {
     padding: $smallPadding;
     height: calc(100vh - (#{$smallPadding} * 2));
+  }
+
+  .intro__container {
+    height: 300px;
   }
 }

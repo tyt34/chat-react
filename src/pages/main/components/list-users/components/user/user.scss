@@ -12,14 +12,14 @@
 .user-text {
   font-size: 16px;
   margin-right: 5px;
-  color: $mainColor;
+  color: var(--mainColor);
 }
 
 .user-ava {
   @include size(50px, 50px);
   margin-bottom: 10px;
   border-radius: 10px;
-  border: $defaultBorder;
+  border: $widthBorder var(--mainColor) solid;
   box-sizing: border-box;
 }
 

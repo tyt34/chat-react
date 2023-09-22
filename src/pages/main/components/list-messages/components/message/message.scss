@@ -4,6 +4,7 @@
   width: 60%;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 10px;
 }
 
 .message-top {
@@ -15,14 +16,14 @@
 .message-user {
   margin-right: 10px;
   font-size: 16px;
-  color: $mainColor;
+  color: var(--mainColor);
 }
 
 .message__user-ava {
   margin-bottom: 10px;
   @include size(50px, 50px);
   border-radius: 10px;
-  border: $defaultBorder;
+  border: $widthBorder var(--mainColor) solid;
   box-sizing: border-box;
 }
 
@@ -37,7 +38,7 @@
 .message-text {
   word-wrap: break-word;
   font-size: 16px;
-  color: $mainColor;
+  color: var(--mainColor);
 }
 
 .message__img {
@@ -48,7 +49,7 @@
 }
 
 .message__img-title {
-  color: $mainColor;
+  color: var(--mainColor);
   font-size: 14px;
   margin-bottom: 10px;
 }
@@ -56,13 +57,13 @@
 .message__img-mini {
   width: 100px;
   cursor: pointer;
-  border: $defaultBorder;
+  border: $widthBorder var(--mainColor) solid;
   box-sizing: border-box;
   border-radius: 5px;
 }
 
 .message__img-mini:hover {
-  border-color: $hoverBackgroundColor;
+  border-color: var(--hoverBackgroundColor);
 }
 
 .message_main {
@@ -70,7 +71,7 @@
 }
 
 .message-full {
-  border: $defaultBorder;
+  border: $widthBorder var(--mainColor) solid;
   border-radius: 12px;
 }
 

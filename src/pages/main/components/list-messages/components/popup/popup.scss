@@ -35,7 +35,7 @@ $paddingPopup: 50px;
 
 .popup__close {
   @include size(50px, 50px);
-  color: $mainColor;
+  color: var(--mainColor);
   font-size: 30px;
   display: block;
   position: relative;
@@ -44,7 +44,7 @@ $paddingPopup: 50px;
 }
 
 .popup__close:hover {
-  color: $hoverBackgroundColor;
+  color: var(--hoverBackgroundColor);
 }
 
 @media screen and (max-width: 600px) {

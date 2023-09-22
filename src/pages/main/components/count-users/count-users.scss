@@ -5,7 +5,7 @@
   justify-content: center;
   height: $heightTopBig;
   font-size: 16px;
-  border: $defaultBorder;
+  border: $widthBorder var(--mainColor) solid;
   box-sizing: border-box;
 }
 
@@ -14,14 +14,14 @@
   right: 5px;
   padding-top: 15px;
   padding-bottom: 15px;
-  color: $mainColor;
+  color: var(--mainColor);
 }
 
 @media screen and (max-width: 600px) {
   .count-users__left-top {
     @include flexCenter;
     @include size(100%, 20px);
-    color: $mainColor;
+    color: var(--mainColor);
     font-size: 12px;
   }
 

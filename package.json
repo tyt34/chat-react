@@ -18,6 +18,7 @@
   },
   "scripts": {
     "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
+    "build-w": "react-scripts build",
     "deploy": "echo 'REACT_APP_URLAPI=prod' > .env; gh-pages -d build",
     "eslint": "eslint 'src/**/*.tsx' --fix",
     "predeploy": "npm run build",

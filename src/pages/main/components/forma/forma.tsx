@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef } from 'react'
+import React, { FC, useState, useRef, KeyboardEvent } from 'react'
 import {
   socketOptions,
   textForFile
@@ -52,6 +52,13 @@ export const Forma: FC<Props> = ({ socket }: Props) => {
     }
   }
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.ctrlKey && e.key === 'Enter') {
+      e.preventDefault()
+      handleButtonSend()
+    }
+  }
+
   return (
     <div className="forma__area">
       <form className="forma__form">
@@ -60,7 +67,8 @@ export const Forma: FC<Props> = ({ socket }: Props) => {
           value={text}
           onChange={handleChangeText}
           name="text"
-          placeholder="Напишите сообщение..."
+          placeholder="Отправить сообщение: ctrl + Enter"
+          onKeyDown={handleKeyDown}
         />
         <div className="forma__buttons">
           <button

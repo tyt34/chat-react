@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import {
+  ChangeTheme,
   CountUsers,
   Forma,
   ListMessages,
@@ -25,5 +26,7 @@ export const Main: FC<Props> = ({ socket }: Props) => (
       <ListMessages />
       <Forma socket={socket} />
     </section>
+
+    <ChangeTheme />
   </section>
 )
