@@ -83,5 +83,5 @@ window.env = {
   "VTE_VERSION": "6003",
   "INIT_CWD": "/home/r/pr/react/chat",
   "EDITOR": "vi",
-  "REACT_APP_URLAPI": "test"
+  "REACT_APP_URLAPI": "prod"
 };
