@@ -15,10 +15,10 @@
 
 @media screen and (max-width: 600px) {
   .list-messages {
-    height: calc(
-      100vh - #{$heightMainUserSmall} - #{$heightFormaSmall} - #{$heightPanelPhone} -
-        #{$heightTopSmall}
-    );
+    // height: calc(
+    //   100vh - #{$heightMainUserSmall} - #{$heightFormaSmall} - #{$heightPanelPhone} -
+    //     #{$heightTopSmall}
+    // );
   }
 
   .list-messages__inside {

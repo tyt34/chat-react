@@ -2,7 +2,7 @@
   "name": "reactjs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tyt34.github.io/chat-react-js/",
+  "homepage": "https://tyt34.github.io/chat-react",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "node-sass": "^8.0.0",
@@ -21,7 +21,6 @@
     "build-w": "react-scripts build",
     "deploy": "echo 'REACT_APP_URLAPI=prod' > .env; gh-pages -d build",
     "eslint": "eslint 'src/**/*.tsx' --fix",
-    "predeploy": "npm run build",
     "pret": "npx prettier --write .",
     "start": "echo 'REACT_APP_URLAPI=test' > .env; react-dotenv && DISABLE_ESLINT_PLUGIN=true react-scripts start",
     "start-w": "react-scripts start",
