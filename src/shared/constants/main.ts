@@ -7,7 +7,7 @@ export const socketOptions = {
   getOldUser: 'remove user',
   giveAllUsers: 'now list users',
   giveName: 'give a name',
-  sendChatMessage: 'chat message'
+  sendChatMessage: 'chat message',
 }
 
 export const textForFile = 'Файл не выбран'

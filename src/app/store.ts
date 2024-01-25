@@ -5,7 +5,7 @@ import { mainSlice } from './app.slice'
 
 export const store = configureStore({
   reducer: mainSlice.reducer,
-  middleware: [/*Logger*/ SocketMid]
+  middleware: [/*Logger*/ SocketMid],
 })
 
 export type RootState = ReturnType<typeof store.getState>

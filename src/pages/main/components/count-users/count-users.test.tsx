@@ -10,7 +10,7 @@ import { store } from '../../../../app/store'
 const exampleUser = {
   avatar: 'a',
   id: 'a',
-  name: 'a'
+  name: 'a',
 }
 
 afterEach(async () => {
@@ -19,7 +19,7 @@ afterEach(async () => {
 
 const customStore = configureStore({
   reducer: mainSlice.reducer,
-  preloadedState: { ...initialState, listUsers: [exampleUser] }
+  preloadedState: { ...initialState, listUsers: [exampleUser] },
 })
 
 describe('Тестирование компонента CountUsers. 1', () => {
@@ -27,7 +27,7 @@ describe('Тестирование компонента CountUsers. 1', () => {
     render(
       <Provider store={store}>
         <CountUsers />
-      </Provider>
+      </Provider>,
     )
 
     const searchEl = screen.getByText('Online пользователей: 0')
@@ -38,11 +38,11 @@ describe('Тестирование компонента CountUsers. 1', () => {
     render(
       <Provider store={customStore}>
         <CountUsers />
-      </Provider>
+      </Provider>,
     )
 
     expect(
-      screen.getByText('Online пользователей: 1')
+      screen.getByText('Online пользователей: 1'),
     ).toBeInTheDocument()
   })
 })

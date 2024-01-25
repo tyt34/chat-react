@@ -11,7 +11,7 @@ describe('Тестирование компонента User.', () => {
       <User
         name={exampleName}
         avatar={exampleAva}
-      />
+      />,
     )
 
     const searchEl1 = screen.getByText(exampleName)

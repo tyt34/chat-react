@@ -13,7 +13,7 @@ export const InputFile: FC<Props> = ({
   inputFile,
   setNameFile,
   nameFile,
-  setImgInBase64
+  setImgInBase64,
 }: Props) => {
   const handleChange = (): void => {
     if (inputFile.current?.files?.[0] !== undefined) {

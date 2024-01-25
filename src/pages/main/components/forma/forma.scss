@@ -25,7 +25,7 @@ $widthIndent: 15px;
 }
 
 .forma__textarea:focus-visible {
-  height: calc($heightTextArea - ($widthBorder * 2));
+  height: calc($heightTextArea);
   outline: $widthBorder var(--mainColor) solid;
 }
 

@@ -5,7 +5,7 @@ import {
   Forma,
   ListMessages,
   ListUsers,
-  MainUser
+  MainUser,
 } from './components'
 import { Socket } from 'socket.io-client'
 import './main.scss'

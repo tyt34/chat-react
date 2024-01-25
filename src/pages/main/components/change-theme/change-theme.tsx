@@ -18,7 +18,7 @@ export const ChangeTheme = () => {
     setTheme(
       sessionStorage.getItem('theme')
         ? (sessionStorage.getItem('theme') as ThemeType)
-        : 'green'
+        : 'green',
     )
   }, [])
 

@@ -8,14 +8,16 @@ import { socketOptions, urlApi } from '../shared/constants/main'
 import { useAppDispatch } from '../shared/hook'
 import { Intro, Main } from '../pages'
 
+const { giveAllUsers, addOldUser, giveName } = socketOptions
+
 const socket = io(urlApi)
 
 export const App: FC = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    socket.emit(socketOptions.giveAllUsers)
-    socket.on(socketOptions.giveAllUsers, (users) => {
+    socket.emit(giveAllUsers)
+    socket.on(giveAllUsers, (users) => {
       users.forEach((u: IUser) => {
         dispatch(addUser(u))
       })
@@ -24,20 +26,20 @@ export const App: FC = () => {
     const storageData: IUser = {
       avatar: sessionStorage.getItem('avatar') ?? '',
       id: sessionStorage.getItem('id') ?? '',
-      name: sessionStorage.getItem('name') ?? ''
+      name: sessionStorage.getItem('name') ?? '',
     }
 
     if (storageData.id) {
       dispatch(setMainUser(storageData))
-      socket.emit(socketOptions.addOldUser, storageData)
+      socket.emit(addOldUser, storageData)
 
-      socket.on(socketOptions.addOldUser, (socketId: string) => {
+      socket.on(addOldUser, (socketId: string) => {
         dispatch(addSocketId(socketId))
       })
     } else {
-      socket.emit(socketOptions.giveName)
+      socket.emit(giveName)
 
-      socket.on(socketOptions.giveName, (user: IUser) => {
+      socket.on(giveName, (user: IUser) => {
         sessionStorage.setItem('avatar', user.avatar)
         sessionStorage.setItem('id', user.id)
         sessionStorage.setItem('name', user.name)

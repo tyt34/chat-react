@@ -3,7 +3,7 @@ import React, {
   useCallback,
   useEffect,
   useRef,
-  useState
+  useState,
 } from 'react'
 import { Message, Popup } from './components'
 import { WrapperScroll } from '../wrapper-scroll'
@@ -20,7 +20,7 @@ export const ListMessages: FC = () => {
     (image: string) => {
       setImgPopup(image)
     },
-    [imgPopup]
+    [imgPopup],
   )
 
   /**

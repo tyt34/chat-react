@@ -3,7 +3,7 @@ import React, {
   ReactElement,
   useEffect,
   useRef,
-  useState
+  useState,
 } from 'react'
 import './wrapper-scroll.scss'
 
@@ -60,7 +60,7 @@ export const WrapperScroll: FC<Props> = ({ children, type }) => {
       ref={divRef}
       className={classDiv}
       style={{
-        overflowY: overflowY
+        overflowY: overflowY,
       }}
     >
       {children}

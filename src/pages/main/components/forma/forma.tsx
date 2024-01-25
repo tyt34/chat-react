@@ -1,13 +1,13 @@
 import React, { FC, useState, useRef, KeyboardEvent } from 'react'
 import {
   socketOptions,
-  textForFile
+  textForFile,
 } from '../../../../shared/constants/main'
 import { InputFile } from './components'
 import { Socket } from 'socket.io-client'
-import { addMessageMainUser } from '../../../../app/app.slice'
 import { useAppDispatch } from '../../../../shared/hook'
 import './forma.scss'
+import { addMessage } from '../../../../app/app.slice'
 
 interface Props {
   socket: Socket
@@ -16,7 +16,7 @@ interface Props {
 export const Forma: FC<Props> = ({ socket }: Props) => {
   const dispatch = useAppDispatch()
   const inputFile = useRef<null | HTMLInputElement | { value: null }>(
-    null
+    null,
   )
   const [text, setText] = useState('')
   const [nameFile, setNameFile] = useState(textForFile)
@@ -31,17 +31,16 @@ export const Forma: FC<Props> = ({ socket }: Props) => {
   }
 
   const handleChangeText = (
-    e: React.ChangeEvent<HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLTextAreaElement>,
   ): void => {
     setText(e.target.value)
   }
 
   const handleButtonSend = (): void => {
     if (text !== '' || imgInBase64 !== '') {
-      dispatch(addMessageMainUser({ text, imgInBase64 }))
       socket.emit(socketOptions.sendChatMessage, {
         message: text,
-        imageFile: imgInBase64
+        imageFile: imgInBase64,
       })
       if (inputFile.current !== null) {
         inputFile.current.value = null

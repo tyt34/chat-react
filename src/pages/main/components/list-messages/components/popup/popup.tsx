@@ -8,7 +8,7 @@ interface Props {
 
 const PopupComponent: FC<Props> = ({
   imgPopup,
-  setImagePopup
+  setImagePopup,
 }: Props) => {
   const handleClick = (): void => {
     setImagePopup('')

@@ -13,7 +13,7 @@ const MessageComponent: FC<Props> = ({
   avatar,
   imageFile,
   message,
-  setImagePopup
+  setImagePopup,
 }: Props) => {
   const [imageBlob, setImageBlob] = useState<string>('')
   const mainUser = useMainUser()
@@ -21,10 +21,10 @@ const MessageComponent: FC<Props> = ({
   const classLi =
     mainUser.id === id ? 'message message_main' : 'message'
 
-  const isImg = imageFile !== ''
+  const isImg = !!imageFile
 
   useEffect(() => {
-    if (imageFile !== '') {
+    if (isImg) {
       const imageFromBase = async (base: string) => {
         const resultFetch = await fetch(base)
         const blob = await resultFetch.blob()

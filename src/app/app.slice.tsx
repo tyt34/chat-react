@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IUser, IMessage } from '../shared/types/main'
-import { MessageAndImg, SliceType } from './app.slice.types'
+import { SliceType } from './app.slice.types'
 import { checkInArray } from '../shared/utils/main'
 import { createSlice } from '@reduxjs/toolkit'
 import { store } from './store'
@@ -9,11 +9,11 @@ export const initialState: SliceType = {
   mainUser: {
     id: '',
     name: '',
-    avatar: ''
+    avatar: '',
   },
   listUsers: [],
   listMessages: [],
-  socketId: ''
+  socketId: '',
 }
 
 export const mainSlice = createSlice({
@@ -35,50 +35,40 @@ export const mainSlice = createSlice({
         return user.id !== action.payload
       })
     },
-    addMessageMainUser: (
-      state,
-      action: PayloadAction<MessageAndImg>
-    ) => {
-      state.listMessages = [
-        ...state.listMessages,
-        {
-          id: state.mainUser.id,
-          avatar: state.mainUser.avatar,
-          name: state.mainUser.name,
-          message: action.payload.text,
-          imageFile: action.payload.imgInBase64
-        }
-      ]
-    },
-    addMessageOtherUser: (state, action: PayloadAction<IMessage>) => {
-      const { avatar, id, imageFile, message, name } = action.payload
+    addMessage: (state, action: PayloadAction<IMessage>) => {
+      const { payload } = action
+      const { imageFile, message, avatar, id, name } = payload
 
-      if (id !== state.mainUser.id && id !== state.socketId) {
+      const validText = message !== undefined
+      const validImg = imageFile !== undefined
+
+      if (validText && validImg) {
         state.listMessages = [
           ...state.listMessages,
           {
-            id,
-            avatar,
-            name,
-            message,
-            imageFile
-          }
+            id: id,
+            avatar: avatar,
+            name: name,
+            message: message,
+            imageFile: imageFile,
+          },
         ]
       }
     },
     addSocketId: (state, action: PayloadAction<string>) => {
       state.socketId = action.payload
-    }
-  }
+    },
+  },
 })
 
 export const {
-  addMessageMainUser,
-  addMessageOtherUser,
+  addMessage,
+  // addMessageMainUser,
+  // addMessageOtherUser,
   addSocketId,
   addUser,
   removeUser,
-  setMainUser
+  setMainUser,
 } = mainSlice.actions
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

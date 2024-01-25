@@ -2,7 +2,7 @@ import { Middleware } from 'redux'
 import {
   MiddlewareAPI,
   Dispatch,
-  Action
+  Action,
 } from '../shared/types/middleware'
 
 export const Logger: Middleware =

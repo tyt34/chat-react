@@ -6,8 +6,3 @@ export type SliceType = {
   listMessages: IMessage[]
   socketId: string
 }
-
-export type MessageAndImg = {
-  text: string
-  imgInBase64: string
-}
