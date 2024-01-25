@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/chat-react/static/css/main.6df3b25b.css",
-    "main.js": "/chat-react/static/js/main.b0199dcd.js",
+    "main.css": "/chat-react/static/css/main.125ed574.css",
+    "main.js": "/chat-react/static/js/main.d1778956.js",
     "static/media/def-ava.png": "/chat-react/static/media/def-ava.c63c9041c0304d6dcf2a.png",
     "index.html": "/chat-react/index.html",
-    "main.6df3b25b.css.map": "/chat-react/static/css/main.6df3b25b.css.map",
-    "main.b0199dcd.js.map": "/chat-react/static/js/main.b0199dcd.js.map"
+    "main.125ed574.css.map": "/chat-react/static/css/main.125ed574.css.map",
+    "main.d1778956.js.map": "/chat-react/static/js/main.d1778956.js.map"
   },
   "entrypoints": [
-    "static/css/main.6df3b25b.css",
-    "static/js/main.b0199dcd.js"
+    "static/css/main.125ed574.css",
+    "static/js/main.d1778956.js"
   ]
 }
