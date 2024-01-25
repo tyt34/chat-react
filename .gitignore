@@ -6,3 +6,4 @@
 /coverage
 /build
 test.template.tsx
+public/env.js

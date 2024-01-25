@@ -4,6 +4,7 @@
   padding-left: 10px;
   border: $widthBorder var(--mainColor) solid;
   box-sizing: border-box;
+  height: calc(100vh - $heightTopBig - $heightMainUserBig);
 }
 
 .list-users__left-mid {

@@ -14,54 +14,56 @@ interface Props {
 
 export const WrapperScroll: FC<Props> = ({ children, type }) => {
   const divRef = useRef<null | HTMLDivElement>(null)
-  const [timer, setTimer] = useState<null | NodeJS.Timeout>(null)
-  const [showScrollbar, setShowScrollbar] = useState(false)
+  // const [timer, setTimer] = useState<null | NodeJS.Timeout>(null)
+  // const [showScrollbar, setShowScrollbar] = useState(false)
 
-  const overflowY = showScrollbar ? 'scroll' : 'hidden'
-  const classDiv = `scrollbar scrollbar__${type}`
+  // const overflowY = showScrollbar ? 'scroll' : 'hidden'
+  // const classDiv = `scrollbar scrollbar__${type}`
 
-  useEffect(() => {
-    const handleWheel = (event: WheelEvent) => {
-      setShowScrollbar(true)
-      event.preventDefault()
+  // useEffect(() => {
+  //   const handleWheel = (event: WheelEvent) => {
+  //     setShowScrollbar(true)
+  //     event.preventDefault()
 
-      if (timer) {
-        clearTimeout(timer)
-      }
+  //     if (timer) {
+  //       clearTimeout(timer)
+  //     }
 
-      const newTimer = setTimeout(() => {
-        setShowScrollbar(false)
-      }, 2000)
+  //     const newTimer = setTimeout(() => {
+  //       setShowScrollbar(false)
+  //     }, 2000)
 
-      setTimer(newTimer)
+  //     setTimer(newTimer)
 
-      if (divRef.current !== null) {
-        divRef.current.scrollBy(0, event.deltaY)
-        setShowScrollbar(true)
-      }
-    }
+  //     if (divRef.current !== null) {
+  //       divRef.current.scrollBy(0, event.deltaY)
+  //       setShowScrollbar(true)
+  //     }
+  //   }
 
-    if (divRef.current !== null) {
-      divRef.current.addEventListener('wheel', handleWheel)
-    }
+  //   if (divRef.current !== null) {
+  //     divRef.current.addEventListener('wheel', handleWheel)
+  //   }
 
-    return () => {
-      if (divRef.current !== null) {
-        divRef.current.removeEventListener('wheel', handleWheel)
-      }
-      if (timer) {
-        clearTimeout(timer)
-      }
-    }
-  }, [timer, showScrollbar])
+  //   return () => {
+  //     if (divRef.current !== null) {
+  //       divRef.current.removeEventListener('wheel', handleWheel)
+  //     }
+  //     if (timer) {
+  //       clearTimeout(timer)
+  //     }
+  //   }
+  // }, [timer, showScrollbar])
 
   return (
     <div
       ref={divRef}
-      className={classDiv}
-      style={{
-        overflowY: overflowY,
-      }}
+      // className={classDiv}
+      style={
+        {
+          // overflowY: overflowY,
+        }
+      }
     >
       {children}
     </div>

@@ -28,8 +28,10 @@ export const ListMessages: FC = () => {
    * то есть на входящие сообщения смещения не будет
    */
   useEffect(() => {
+    console.log({ a: list.at(-1)?.name, b: name })
     if (list.at(-1)?.name === name) {
       ulList?.current?.scrollTo(0, ulList.current?.scrollHeight)
+      console.log({ ulList, b: ulList.current?.scrollHeight })
     }
   }, [list])
 
